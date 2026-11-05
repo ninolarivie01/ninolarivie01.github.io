@@ -3,196 +3,221 @@
 <head>
 <meta charset="utf-8">
 <title>CV, Nino Larivière-Gillet</title>
-<!-- Source du CV en PDF : ouvrir dans Edge ou Chrome, Imprimer, « Enregistrer au format PDF », marges aucune, graphiques d'arrière-plan cochés. -->
+<!-- Source du CV en PDF, reprise de la mise en page Canva d'origine.
+     Ouvrir dans Edge ou Chrome, Imprimer, « Enregistrer au format PDF », marges : aucune, graphiques d'arrière-plan cochés. -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=block" rel="stylesheet">
 <style>
-  @font-face { font-family: 'Schibsted Grotesk'; src: url('../../public/fonts/schibsted-grotesk-latin-wght-normal.woff2') format('woff2'); font-weight: 400 900; }
-  @font-face { font-family: 'Literata'; src: url('../../public/fonts/literata-latin-wght-normal.woff2') format('woff2'); font-weight: 200 900; }
   :root {
-    --noir: #1c1714;
-    --brique: #8a3a27;
-    --gris: #59504a;
-    --filet: #c8bdac;
-    --fond: #f2ede3;
-    --titre: 'Schibsted Grotesk', system-ui, sans-serif;
-    --texte: 'Literata', Georgia, serif;
+    --violet: #250dab;
+    --encre: #07113c;
+    --gris: #a6a9b0;
+    --lavande: #f5f7ff;
   }
-  @page { size: A4; margin: 0; }
+  @page { size: 595.5pt 842.25pt; margin: 0; }
   * { box-sizing: border-box; }
-  html, body { margin: 0; background: #fff; color: var(--noir); }
-  body { font: 400 8.6pt/1.42 var(--texte); }
-  .page {
-    width: 210mm; height: 297mm; overflow: hidden;
-    display: grid; grid-template-columns: 1fr 64mm; grid-template-rows: auto 1fr;
-  }
-  h1, h2, h3, .titre { font-family: var(--titre); margin: 0; }
-  p { margin: 0; }
-  ul { margin: 0; padding: 0; list-style: none; }
+  html, body { margin: 0; background: #fff; }
+  body { font: 400 9pt/1.3 'Poppins', sans-serif; color: var(--encre); }
+  .page { position: relative; width: 595.5pt; height: 842.25pt; overflow: hidden; }
+  p, h1, h2, h3, ul { margin: 0; padding: 0; }
+  ul { list-style: none; }
+
+  .barre { position: absolute; left: 26.5pt; right: 21.5pt; height: 10.5pt; background: var(--violet); }
+  .barre.haut { top: 0; }
+  .barre.bas { bottom: 0; }
 
   /* En-tête */
-  header {
-    grid-column: 1 / -1;
-    padding: 11mm 14mm 5mm;
-    border-bottom: 1.2mm solid var(--brique);
-    display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 8mm;
-  }
-  h1 { font-size: 27pt; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
-  .poste { margin-top: 2.2mm; font: 600 10.5pt/1.3 var(--titre); color: var(--brique); }
-  .contact { font: 400 8.2pt/1.6 var(--titre); text-align: right; color: var(--gris); }
-  .contact strong { color: var(--noir); font-weight: 600; }
+  .photo { position: absolute; left: 23.5pt; top: 27.5pt; width: 124.5pt; height: 124.5pt; }
+  .photo img { width: 100%; height: 100%; display: block; }
+  .anneau { position: absolute; border: 1.2pt solid var(--violet); border-radius: 50%; }
+  .anneau.a1 { left: 9pt; top: 19pt; width: 140pt; height: 140pt; }
+  .anneau.a2 { left: 12pt; top: 22pt; width: 140pt; height: 140pt; }
+  .age { position: absolute; left: 66pt; top: 172pt; font: 700 12pt/1 'Poppins'; color: #000; }
+  .identite { position: absolute; left: 158pt; top: 28pt; right: 14pt; }
+  h1 { font: 700 30pt/1.15 'Poppins'; letter-spacing: 0.04em; text-transform: uppercase; }
+  .sous-titre { font: 700 12pt/1.3 'Poppins'; margin-top: 6pt; }
+  .sous-titre + .sous-titre { margin-top: 12pt; }
+  .accroche { font-size: 8.5pt; line-height: 1.32; margin: 9pt 0 0 2pt; }
 
-  /* Colonne principale */
-  main { padding: 6mm 9mm 8mm 14mm; }
-  .accroche { font-size: 8.9pt; line-height: 1.48; margin-bottom: 4.5mm; }
-  section + section { margin-top: 4.2mm; }
-  h2 {
-    font-size: 10.5pt; font-weight: 700; color: var(--noir);
-    padding-bottom: 1.2mm; margin-bottom: 2.8mm; border-bottom: 0.3mm solid var(--noir);
-  }
-  .poste-exp + .poste-exp { margin-top: 3.4mm; }
-  .entete-exp { display: flex; justify-content: space-between; gap: 4mm; align-items: baseline; }
-  h3 { font-size: 9.4pt; font-weight: 700; }
-  .date { font: 500 7.8pt/1.3 var(--titre); color: var(--brique); white-space: nowrap; }
-  .org { color: var(--gris); font-style: italic; margin: 0.4mm 0 1.2mm; }
-  main li { position: relative; padding-left: 3.4mm; }
-  main li + li { margin-top: 0.5mm; }
-  main li::before { content: ''; position: absolute; left: 0; top: 0.62em; width: 1.4mm; height: 0.35mm; background: var(--brique); }
-  .projet + .projet { margin-top: 2.6mm; }
-  .projet p { margin-top: 0.5mm; }
-  .compact .ligne { display: grid; grid-template-columns: 19mm 1fr; gap: 3mm; }
-  .compact .ligne + .ligne { margin-top: 1.1mm; }
-  .compact .date { white-space: normal; }
+  .contact { position: absolute; left: 21.75pt; top: 188.9pt; width: 550pt; height: 43.5pt; }
+  .contact img { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .contact span { position: absolute; top: 0; height: 100%; display: flex; align-items: center; font: 500 9pt/1 'Poppins'; }
 
-  /* Colonne latérale */
-  aside { background: var(--fond); padding: 6mm 8mm 6mm 7mm; font-size: 8.2pt; }
-  aside h2 { font-size: 9.6pt; border-bottom-color: var(--filet); }
-  aside section + section { margin-top: 3.6mm; }
-  .groupe + .groupe { margin-top: 1.8mm; }
-  .groupe .titre { font-size: 7.8pt; font-weight: 600; color: var(--brique); margin-bottom: 0.4mm; }
-  .groupe p { font-size: 8pt; line-height: 1.36; }
-  .langue { display: flex; justify-content: space-between; }
-  .langue span:last-child { font-family: var(--titre); font-weight: 600; }
-  .langue + .langue { margin-top: 1mm; }
-  aside li + li { margin-top: 0.9mm; }
-  .petit { color: var(--gris); font-size: 7.6pt; }
-  .certifs { margin-top: 1mm; }
-  .certifs li + li { margin-top: 0.6mm; }
+  /* Colonne de gauche */
+  .boite { position: absolute; left: 26.5pt; width: 226pt; background: var(--lavande); padding: 12pt 14pt 12pt 19pt; }
+  .boite.formation { top: 251pt; }
+  .boite.competences { top: 504pt; bottom: 18pt; }
+  h2 { font: 600 15pt/1.2 'Poppins'; letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 10pt; }
+  .boite h3 { font: 600 9pt/1.3 'Poppins'; text-transform: uppercase; }
+  .diplome + .diplome { margin-top: 8pt; }
+  .annee { font-weight: 500; color: var(--gris); }
+  .rubrique + .rubrique { margin-top: 6pt; }
+  .rubrique p { line-height: 1.25; }
+  .rubrique p + p { margin-top: 2.5pt; }
+
+  /* Expériences */
+  .experiences { position: absolute; left: 268pt; right: 21pt; top: 251pt; }
+  .frise { position: relative; padding-left: 10pt; }
+  .frise::before { content: ''; position: absolute; left: 2pt; top: 6pt; bottom: 6pt; width: 1.2pt; background: var(--violet); }
+  .poste { position: relative; }
+  .poste + .poste { margin-top: 8.5pt; }
+  .poste::before {
+    content: ''; position: absolute; left: -11.6pt; top: 2.5pt; width: 5pt; height: 5pt;
+    border: 1.2pt solid var(--violet); border-radius: 50%; background: #fff;
+  }
+  .poste h3 { font: 600 9pt/1.3 'Poppins'; text-transform: uppercase; }
+  .poste h3 small { font: 400 9pt/1.3 'Poppins'; }
+  .employeur { color: var(--gris); }
+  .poste ul { margin-top: 2pt; padding-left: 11pt; }
+  .poste li { position: relative; line-height: 1.28; }
+  .poste li::before { content: '•'; position: absolute; left: -9pt; }
+
+  .portfolio { position: absolute; left: 280pt; bottom: 18pt; display: flex; gap: 32pt; align-items: center; }
+  .portfolio p { font: 700 8pt/1 'Poppins'; text-decoration: underline; }
+  .portfolio img { width: 64pt; height: 64pt; display: block; }
 </style>
 </head>
 <body>
 <div class="page">
-  <header>
-    <div>
-      <h1>Nino Larivière-Gillet</h1>
-      <p class="poste">Technicien support et infrastructure, en alternance</p>
-    </div>
-    <p class="contact">
-      <strong>nlarivie35@gmail.com</strong><br>
-      linkedin.com/in/nino-larivière-gillet-503276248<br>
-      Portfolio : <strong>ninolarivie01.github.io</strong><br>
-      Rennes
-    </p>
-  </header>
+  <div class="barre haut"></div>
 
-  <main>
+  <span class="anneau a1"></span><span class="anneau a2"></span>
+  <div class="photo"><img src="photo.png" alt="Photo de Nino Larivière-Gillet"></div>
+  <p class="age">22 ANS</p>
+
+  <div class="identite">
+    <h1>Nino Larivière-Gillet</h1>
+    <p class="sous-titre">Étudiant à l'AFTEC en BTS SIO</p>
+    <p class="sous-titre">Option Solutions d'Infrastructures Systèmes et Réseaux (SISR)</p>
     <p class="accroche">
-      En 2e année de BTS SIO option SISR à l'AFTEC, en alternance au centre de service de la Direction des services
-      numériques du Département d'Ille-et-Vilaine. Après une licence d'économie-gestion, je me suis réorienté vers
-      l'informatique, qui me passionne : l'administration réseau et la cybersécurité en particulier. Objectif :
-      poursuivre jusqu'à bac+5 en alternance.
+      Actuellement en 2e année de BTS SIO en alternance à la Direction des services numériques du Département
+      d'Ille-et-Vilaine, je suis passionné par l'administration réseau et la cybersécurité. Motivé, rigoureux et
+      curieux, je souhaite poursuivre jusqu'à bac+5 en alternance pour continuer à développer mes compétences.
     </p>
+  </div>
 
-    <section>
-      <h2>Expérience</h2>
-      <div class="poste-exp">
-        <div class="entete-exp"><h3>Apprenti technicien support de niveau 1</h3><span class="date">sept. 2026 – juil. 2027</span></div>
-        <p class="org">Département d'Ille-et-Vilaine, Direction des services numériques, centre de service, Rennes</p>
+  <div class="contact">
+    <img src="contact.png" alt="">
+    <span style="left: 58pt">nlarivie35@gmail.com</span>
+    <span style="left: 274pt">07 69 33 96 93</span>
+    <span style="left: 421pt">La Baussaine, 35190</span>
+  </div>
+
+  <section class="boite formation">
+    <h2>Formation</h2>
+    <div class="diplome">
+      <h3>BTS SIO option SISR</h3>
+      <p>AFTEC Rennes, en alternance</p>
+      <p class="annee">2025-2027</p>
+    </div>
+    <div class="diplome">
+      <h3>Licence Éco-Gestion</h3>
+      <p>Université de Rennes 1</p>
+      <p class="annee">2021-2024</p>
+    </div>
+    <div class="diplome">
+      <h3>Baccalauréat général (mention assez bien)</h3>
+      <p>Lycée Saint-Martin, Rennes</p>
+      <p class="annee">2021</p>
+    </div>
+    <div class="diplome">
+      <h3>Diplôme national du brevet (mention bien)</h3>
+      <p>Collège Saint-Joseph La Salle</p>
+      <p class="annee">2018</p>
+    </div>
+  </section>
+
+  <section class="boite competences">
+    <h2>Compétences</h2>
+    <div class="rubrique">
+      <h3>Logiciels maîtrisés</h3>
+      <p>Pack Office (Word, VBA, Access, ..)</p>
+      <p>Connaissances de Photoshop, Adobe Premiere Pro</p>
+      <p>GLPI, EasyVista, MECM, Nexthink</p>
+      <p>Cisco Packet Tracer, Wireshark, FortiGate</p>
+      <p>VMware Workstation Pro, Docker</p>
+    </div>
+    <div class="rubrique">
+      <h3>Langues parlées</h3>
+      <p>Anglais : B2/C1 ; Espagnol : B1</p>
+    </div>
+    <div class="rubrique">
+      <h3>Système d'exploitation</h3>
+      <p>Windows Server (AD DS, DHCP, DNS, GPO), 7, 8, 10, 11</p>
+      <p>Linux : Ubuntu, Debian, Kali</p>
+    </div>
+    <div class="rubrique">
+      <h3>Certifications</h3>
+      <p>Badges Cisco Networking Academy (2026)&nbsp;: Networking Basics, Networking Devices and Initial Configuration, Network Addressing and Basic Troubleshooting</p>
+    </div>
+    <div class="rubrique">
+      <h3>Language code</h3>
+      <p>HTML, CSS, JavaScript, PHP, WordPress</p>
+    </div>
+  </section>
+
+  <section class="experiences">
+    <h2>Expériences</h2>
+    <div class="frise">
+      <div class="poste">
+        <h3>Apprenti technicien support I 2026-2027</h3>
+        <p class="employeur">Département d'Ille-et-Vilaine, DSN, Rennes</p>
         <ul>
-          <li>Support des agents sous EasyVista, sur site ou à distance par MECM ; escalade au niveau 2</li>
-          <li>Remasterisation de postes d'occasion sous Windows 11 par PXE, chiffrement BitLocker</li>
+          <li>Support de niveau 1 sous EasyVista, sur site et à distance (MECM)</li>
+          <li>Masterisation de postes Windows 11 par PXE, BitLocker</li>
           <li>Suivi des postes dans Active Directory, MECM et EasyVista</li>
-          <li>Diagnostic des lenteurs avec Nexthink et ajout de mémoire vive</li>
-          <li>Échanges de ports au brassage ; transmission des réparations au prestataire</li>
         </ul>
       </div>
-      <div class="poste-exp">
-        <div class="entete-exp"><h3>Stagiaire, support informatique</h3><span class="date">juin – juil. 2026</span></div>
-        <p class="org">Pôle Saint-Hélier, service informatique, Rennes</p>
+      <div class="poste">
+        <h3>Stagiaire informatique I 2026 <small>(5 semaines)</small></h3>
+        <p class="employeur">Pôle Saint-Hélier, Rennes</p>
         <ul>
-          <li>Environ une centaine de tickets GLPI de niveau 1 et 2 : comptes, Outlook, Teams, postes</li>
-          <li>Remplacement des postes de plusieurs salles et mise à jour de l'inventaire GLPI</li>
+          <li>Traitement des demandes d'assistance sous GLPI</li>
+          <li>Remplacement de postes et gestion du parc sous GLPI</li>
         </ul>
       </div>
-    </section>
-
-    <section>
-      <h2>Projets de formation</h2>
-      <div class="projet">
-        <div class="entete-exp"><h3>Next Flow-NET, infrastructure d'une entreprise fictive</h3><span class="date">2026 – 2027</span></div>
-        <p>En équipe de 3. Configuration et documentation du pare-feu FortiGate : 11 VLAN, isolement des services, politiques de filtrage, NAT, sécurisation de l'administration, plan de 18 tests.</p>
+      <div class="poste">
+        <h3>Agent d'entretien I 2023 <small>(3 semaines)</small></h3>
+        <p class="employeur">Derichebourg</p>
+        <ul><li>Entretien et nettoyage de l'usine de peinture de Stellantis à Saint-Jacques-de-la-Lande</li></ul>
       </div>
-      <div class="projet">
-        <div class="entete-exp"><h3>SI Albatros, mini-SI d'une PME de 50 postes</h3><span class="date">oct. 2026</span></div>
-        <p>Seul. Active Directory, GLPI relié à l'annuaire en LDAPS, supervision Zabbix, journaux Loki et Grafana, sauvegarde restic, sous Docker Compose ; incidents simulés et traités, restauration de GLPI.</p>
+      <div class="poste">
+        <h3>Agent de fabrication I 2022 <small>(6 semaines)</small></h3>
+        <p class="employeur">Sanden Manufacturing Europe (Randstad Inhouse)</p>
+        <ul>
+          <li>Usinage de pièces de compresseur</li>
+          <li>Contrôle et vérification de la conformité des pièces usinées</li>
+        </ul>
       </div>
-      <div class="projet">
-        <div class="entete-exp"><h3>Services d'infrastructure sous Windows Server et Debian</h3><span class="date">2025 – 2026</span></div>
-        <p>Domaine Active Directory, GPO et partages ; DHCP et DNS sous Windows Server 2025 et sous Debian 13 (isc-dhcp-server, BIND9) ; mise en ligne d'un site WordPress.</p>
+      <div class="poste">
+        <h3>Agent d'entretien I 2021 <small>(1 semaine)</small></h3>
+        <p class="employeur">Derichebourg</p>
+        <ul><li>Entretien et nettoyage de l'usine de peinture de Stellantis à Saint-Jacques-de-la-Lande</li></ul>
       </div>
-    </section>
-
-    <section>
-      <h2>Formation</h2>
-      <div class="compact">
-        <div class="ligne"><span class="date">2025 – 2027</span><p><strong>BTS SIO option SISR</strong>, AFTEC Rennes, en alternance</p></div>
-        <div class="ligne"><span class="date">2024 – 2025</span><p><strong>Master Monnaie, Banque, Finance, Assurance</strong>, commencé, arrêté pour me réorienter</p></div>
-        <div class="ligne"><span class="date">2021 – 2024</span><p><strong>Licence Économie-Gestion</strong>, Université de Rennes 1</p></div>
-        <div class="ligne"><span class="date">2021</span><p><strong>Baccalauréat général</strong>, mention assez bien, Lycée Saint-Martin, Rennes</p></div>
+      <div class="poste">
+        <h3>Agent d'entretien communal I 2018-2020 <small>(4 semaines)</small></h3>
+        <p class="employeur">Commune de La Baussaine</p>
+        <ul><li>Aide à l'agent d'entretien de la commune, du désherbage à la peinture des structures pour enfants</li></ul>
       </div>
-    </section>
-  </main>
+      <div class="poste">
+        <h3>CCAS (Centre communal d'action sociale) I 2018</h3>
+        <p class="employeur">Commune de La Baussaine</p>
+        <ul><li>Service de table pour les personnes âgées lors d'un après-midi (bénévolat)</li></ul>
+      </div>
+      <div class="poste">
+        <h3>Conseil municipal des jeunes I 2015-2017</h3>
+        <p class="employeur">Commune de La Baussaine</p>
+        <ul><li>Bénévolat : faire passer des idées pour les jeunes, organiser des sorties et activités</li></ul>
+      </div>
+    </div>
+  </section>
 
-  <aside>
-    <section>
-      <h2>Compétences techniques</h2>
-      <div class="groupe"><p class="titre">Systèmes</p><p>Windows 10 et 11, Windows Server, Debian 13, Ubuntu, Kali Linux</p></div>
-      <div class="groupe"><p class="titre">Services</p><p>Active Directory, GPO, DNS, DHCP, BIND9, LDAPS</p></div>
-      <div class="groupe"><p class="titre">Parc et support</p><p>GLPI, EasyVista, MECM, Nexthink, PXE, BitLocker</p></div>
-      <div class="groupe"><p class="titre">Réseau et sécurité</p><p>FortiGate (VLAN, filtrage, NAT), brassage, Cisco Packet Tracer, Wireshark</p></div>
-      <div class="groupe"><p class="titre">Virtualisation et supervision</p><p>VMware Workstation, Docker Compose, Zabbix, Grafana</p></div>
-      <div class="groupe"><p class="titre">Web et outils</p><p>HTML, CSS, JavaScript, PHP, WordPress, Git et GitHub, Pack Office</p></div>
-    </section>
+  <div class="portfolio">
+    <p>Portfolio :</p>
+    <img src="qr.svg" alt="QR code vers ninolarivie01.github.io">
+  </div>
 
-    <section>
-      <h2>Certifications</h2>
-      <p class="petit">Badges Cisco Networking Academy, 2026</p>
-      <ul class="certifs">
-        <li>Networking Basics</li>
-        <li>Networking Devices and Initial Configuration</li>
-        <li>Network Addressing and Basic Troubleshooting</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Emplois d'été et engagement</h2>
-      <ul>
-        <li>Agent d'entretien, Derichebourg, usine Stellantis<br><span class="petit">2021 et 2023</span></li>
-        <li>Agent de fabrication, Sanden Manufacturing Europe<br><span class="petit">2022</span></li>
-        <li>Agent d'entretien communal, La Baussaine<br><span class="petit">2018 – 2020</span></li>
-        <li>Conseil municipal des jeunes et CCAS, bénévolat<br><span class="petit">2015 – 2018</span></li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Langues</h2>
-      <p class="langue"><span>Anglais</span><span>B2 – C1</span></p>
-      <p class="langue"><span>Espagnol</span><span>B1</span></p>
-    </section>
-
-    <section>
-      <h2>Centres d'intérêt</h2>
-      <p>Course à pied, cinéma, jeux vidéo et esport, sorties entre amis</p>
-    </section>
-  </aside>
+  <div class="barre bas"></div>
 </div>
 </body>
 </html>
