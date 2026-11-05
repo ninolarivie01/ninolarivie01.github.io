@@ -19,6 +19,13 @@ const pdfPresent = existsSync(join(process.cwd(), 'public', PDF));
     <p>{PROFIL.fonction}, {PROFIL.ville}.</p>
   </header>
 
+  <!-- En-tête du CV imprimé ou exporté en PDF, à la place de celui du site -->
+  <div class="entete-imprime" aria-hidden="true">
+    <p class="nom">{PROFIL.nom}</p>
+    <p>BTS SIO option SISR, {PROFIL.fonction.toLowerCase()}, {PROFIL.ville}</p>
+    <p><Courriel /> · {decodeURI(PROFIL.linkedin.replace('https://www.', ''))} · portfolio : ninolarivie01.github.io</p>
+  </div>
+
   <p class="telechargement pas-imprime">
     {
       pdfPresent ? (
@@ -59,6 +66,39 @@ const pdfPresent = existsSync(join(process.cwd(), 'public', PDF));
       </dl>
     </section>
 
+    <section aria-labelledby="cv-autres">
+      <h2 id="cv-autres">Emplois d'été et engagement</h2>
+      <dl>
+        <dt>2021 et 2023</dt>
+        <dd>
+          <h3>Agent d'entretien, 1 puis 3 semaines</h3>
+          <p class="org">Derichebourg, usine de peinture Stellantis, Saint-Jacques-de-la-Lande</p>
+        </dd>
+        <dt>2022</dt>
+        <dd>
+          <h3>Agent de fabrication, 6 semaines</h3>
+          <p class="org">Sanden Manufacturing Europe, par Randstad Inhouse</p>
+          <ul>
+            <li>Usinage de pièces de compresseur, contrôle de leur conformité</li>
+          </ul>
+        </dd>
+        <dt>2018 – 2020</dt>
+        <dd>
+          <h3>Agent d'entretien communal, 4 semaines</h3>
+          <p class="org">Commune de La Baussaine</p>
+        </dd>
+        <dt>2015 – 2018</dt>
+        <dd>
+          <h3>Bénévolat</h3>
+          <p class="org">Conseil municipal des jeunes, puis CCAS de La Baussaine</p>
+          <ul>
+            <li>Propositions et organisation de sorties pour les jeunes de la commune</li>
+            <li>Service lors d'un après-midi pour les personnes âgées</li>
+          </ul>
+        </dd>
+      </dl>
+    </section>
+
     <section aria-labelledby="cv-form">
       <h2 id="cv-form">Formation</h2>
       <dl>
@@ -89,17 +129,19 @@ const pdfPresent = existsSync(join(process.cwd(), 'public', PDF));
       <h2 id="cv-tech">Environnements utilisés</h2>
       <dl class="tech">
         <dt>Systèmes</dt>
-        <dd>Windows 11, Windows Server, Debian 13</dd>
+        <dd>Windows 10 et 11, Windows Server, Debian 13, Ubuntu, Kali Linux</dd>
         <dt>Services</dt>
         <dd>Active Directory, GPO, DNS, DHCP, BIND9, isc-dhcp-server</dd>
         <dt>Gestion de parc et ticketing</dt>
         <dd>GLPI, EasyVista, MECM, Nexthink, déploiement PXE, BitLocker</dd>
         <dt>Réseau et sécurité</dt>
-        <dd>FortiGate : VLAN, filtrage, NAT</dd>
+        <dd>FortiGate : VLAN, filtrage, NAT ; Cisco Packet Tracer, Wireshark</dd>
         <dt>Virtualisation et conteneurs</dt>
         <dd>VMware Workstation, Docker Compose</dd>
         <dt>Web</dt>
-        <dd>WordPress, Astro, Git et GitHub</dd>
+        <dd>HTML, CSS, JavaScript, PHP, WordPress, Astro, Git et GitHub</dd>
+        <dt>Bureautique</dt>
+        <dd>Pack Office : Word, Access, VBA</dd>
       </dl>
     </section>
 
@@ -112,11 +154,13 @@ const pdfPresent = existsSync(join(process.cwd(), 'public', PDF));
         <dd>B1</dd>
         <dt>Centres d'intérêt</dt>
         <dd>Course à pied, cinéma, jeux vidéo et esport, sorties entre amis</dd>
+        <dt>Certifications</dt>
+        <dd>Trois badges Cisco Networking Academy, 2026 : Networking Basics, Networking Devices and Initial Configuration, Network Addressing and Basic Troubleshooting</dd>
       </dl>
-      <p>Certifications : voir la page <a href="/certifications/">Certifications et formations</a>.</p>
+      <p class="pas-imprime">Certifications : voir la page <a href="/certifications/">Certifications et formations</a>.</p>
     </section>
 
-    <section aria-labelledby="cv-contact">
+    <section aria-labelledby="cv-contact" class="pas-imprime">
       <h2 id="cv-contact">Contact</h2>
       <p><Courriel /></p>
       <p><a href={PROFIL.linkedin} rel="me noopener">Profil LinkedIn</a></p>
@@ -174,6 +218,69 @@ const pdfPresent = existsSync(join(process.cwd(), 'public', PDF));
   }
   section p {
     margin: 0 0 0.5rem;
+  }
+  .entete-imprime {
+    display: none;
+  }
+  @media print {
+    :global(.site-entete),
+    .entete-page {
+      display: none !important;
+    }
+    .entete-imprime {
+      display: block;
+      border-bottom: 2px solid var(--noir);
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.9rem;
+      font: 400 8.5pt/1.4 var(--titre);
+    }
+    .entete-imprime p {
+      margin: 0;
+    }
+    .entete-imprime .nom {
+      font: 700 20pt/1.1 var(--titre);
+      margin-bottom: 0.2rem;
+    }
+    .cv {
+      max-width: none;
+      grid-template-columns: 1fr 1.25fr 1fr;
+      gap: 0.6rem 1.4rem;
+      font-size: 8.5pt;
+      line-height: 1.35;
+    }
+    .cv > section:first-child,
+    .cv > section:nth-child(2) {
+      grid-column: 1 / -1;
+    }
+    h2 {
+      font-size: 11pt;
+      padding-top: 0.25rem;
+      margin-bottom: 0.4rem;
+    }
+    h3 {
+      font-size: 9pt;
+    }
+    dl {
+      grid-template-columns: 8.75rem minmax(0, 1fr);
+      gap: 0.3rem 0.8rem;
+    }
+    .cv > section:nth-child(n + 3) dl {
+      grid-template-columns: 1fr;
+      gap: 0.05rem;
+    }
+    .cv > section:nth-child(n + 3) dd + dt {
+      margin-top: 0.3rem;
+    }
+    dt {
+      font-size: 8pt;
+    }
+    .org {
+      margin: 0 0 0.15rem;
+    }
+    dd ul,
+    .tech dd {
+      font-size: inherit;
+    }
   }
   @media (max-width: 40rem) {
     dl {
