@@ -1,6 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Etiquettes from '../../components/Etiquettes.astro';
+import LienDocument from '../../components/LienDocument.astro';
+import { productionsDe } from '../../lib/productions';
 import { COMPETENCES } from '../../data/competences';
 import { realisationsPubliees, GROUPES, CADRES, periode } from '../../lib/realisations';
 
@@ -59,6 +61,19 @@ const realisations = (await realisationsPubliees()).reverse();
           </h2>
           <p class="resume">{r.data.resume}</p>
           <Etiquettes ids={r.data.competences} liens={false} />
+          {productionsDe(r).some((p) => p.present) && (
+            <p class="docs">
+              Documents :{' '}
+              {productionsDe(r)
+                .filter((p) => p.present)
+                .map((p, i) => (
+                  <>
+                    {i > 0 && ', '}
+                    <LienDocument production={p}>{p.libelleType} ({p.format})</LienDocument>
+                  </>
+                ))}
+            </p>
+          )}
         </li>
       ))
     }
@@ -173,7 +188,8 @@ const realisations = (await realisationsPubliees()).reverse();
     grid-template-areas:
       'meta meta'
       'titre resume'
-      'titre etiquettes';
+      'titre etiquettes'
+      'titre docs';
     gap: 0.4rem 3rem;
     padding: 1.5rem 0;
     border-bottom: 1px solid var(--filet);
@@ -207,10 +223,15 @@ const realisations = (await realisationsPubliees()).reverse();
     grid-area: etiquettes;
     margin-top: 0.3rem;
   }
+  .docs {
+    grid-area: docs;
+    margin: 0.2rem 0 0;
+    font: 400 0.875rem/1.5 var(--titre);
+  }
   @media (max-width: 48rem) {
     .liste li {
       grid-template-columns: 1fr;
-      grid-template-areas: 'meta' 'titre' 'resume' 'etiquettes';
+      grid-template-areas: 'meta' 'titre' 'resume' 'etiquettes' 'docs';
     }
     legend {
       float: none;

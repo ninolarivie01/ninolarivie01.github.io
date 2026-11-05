@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import Etiquettes from '../components/Etiquettes.astro';
+import LienDocument from '../components/LienDocument.astro';
+import { realisationsParGroupe } from '../lib/realisations';
+import { productionsDe } from '../lib/productions';
+
+// Toutes les productions disponibles, rangées comme le tableau de synthèse
+const groupes = (await realisationsParGroupe())
+  .map((g) => ({
+    ...g,
+    lignes: g.realisations
+      .map((r) => ({ r, docs: productionsDe(r).filter((p) => p.present) }))
+      .filter((l) => l.docs.length > 0),
+  }))
+  .filter((g) => g.lignes.length > 0);
+const total = groupes.reduce((n, g) => n + g.lignes.reduce((m, l) => m + l.docs.length, 0), 0);
+---
+
+<Base
+  titre="Productions"
+  description="Toutes mes productions de BTS SIO SISR à consulter en PDF : procédures, documentations techniques et dossiers projet, classées par réalisation."
+>
+  <header class="entete-page">
+    <h1>Productions</h1>
+    <p>
+      Les {total} documents que j'ai rédigés : procédures, documentations techniques et dossiers projet. Chacun s'ouvre
+      dans le lecteur PDF du navigateur, dans un nouvel onglet.
+    </p>
+  </header>
+
+  {
+    groupes.map((g) => (
+      <section class="groupe" aria-labelledby={`groupe-${g.id}`}>
+        <h2 id={`groupe-${g.id}`}>{g.titre}</h2>
+        <ul>
+          {g.lignes.map(({ r, docs }) =>
+            docs.map((p) => (
+              <li>
+                <div class="document">
+                  <p class="type">{p.libelleType}</p>
+                  <LienDocument production={p} class="titre" />
+                  <p class="detail" aria-hidden="true">
+                    {p.format}, {p.taille}
+                  </p>
+                </div>
+                <div class="contexte">
+                  <p>
+                    Réalisation : <a href={`/realisations/${r.id}/`}>{r.data.titre}</a>
+                  </p>
+                  <Etiquettes ids={r.data.competences} liens={false} />
+                </div>
+              </li>
+            )),
+          )}
+        </ul>
+      </section>
+    ))
+  }
+</Base>
+
+<style>
+  .groupe {
+    margin-bottom: 2.5rem;
+  }
+  h2 {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--brique);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--noir);
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0.75rem 3rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--filet);
+  }
+  .document {
+    border-left: 3px solid var(--brique);
+    padding-left: 0.9rem;
+  }
+  .type,
+  .detail {
+    margin: 0;
+    font: 400 0.8125rem/1.4 var(--titre);
+    color: var(--gris);
+  }
+  .document :global(.titre) {
+    display: inline-block;
+    margin: 0.15rem 0 0.2rem;
+    font: 600 1.125rem/1.3 var(--titre);
+  }
+  .contexte p {
+    margin: 0 0 0.4rem;
+    font-size: 0.9375rem;
+  }
+  @media (max-width: 48rem) {
+    li {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

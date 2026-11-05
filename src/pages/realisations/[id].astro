@@ -1,10 +1,10 @@
 ---
-import { existsSync, statSync } from 'node:fs';
-import { join } from 'node:path';
 import { getEntry, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Etiquettes from '../../components/Etiquettes.astro';
 import ACompleter from '../../components/ACompleter.astro';
+import Documents from '../../components/Documents.astro';
+import { productionsDe } from '../../lib/productions';
 import { realisationsPubliees, CADRES, periode, type Realisation } from '../../lib/realisations';
 
 export async function getStaticPaths() {
@@ -31,13 +31,7 @@ if (d.modalite === 'equipe' && !headings.some((h) => h.depth === 2 && h.text.tri
 
 const organisation = d.organisation ? await getEntry(d.organisation) : undefined;
 const p = periode(d.debut, d.fin);
-const TYPES = { procedure: 'Procédure', 'compte-rendu': 'Compte rendu', schema: 'Schéma', rapport: 'Rapport', autre: 'Document' };
-const productions = d.productions.map((prod) => {
-  const chemin = join(process.cwd(), 'public', prod.fichier);
-  const present = existsSync(chemin);
-  const taille = present ? `${Math.max(1, Math.round(statSync(chemin).size / 1024))} ko` : null;
-  return { ...prod, present, taille, format: prod.fichier.split('.').pop()?.toUpperCase() };
-});
+const productions = productionsDe(r);
 ---
 
 <Base titre={d.titre} description={d.resume} type="article">
@@ -49,6 +43,8 @@ const productions = d.productions.map((prod) => {
     <h1>{d.titre}</h1>
     <p>{d.resume}</p>
   </header>
+
+  <Documents productions={productions} />
 
   <div class="fiche">
     <aside class="signaletique" aria-label="Fiche signalétique">
@@ -103,35 +99,6 @@ const productions = d.productions.map((prod) => {
             </div>
           )
         }
-        <div>
-          <dt>Productions</dt>
-          <dd>
-            {
-              productions.length === 0 ? (
-                <ACompleter>procédures, comptes rendus ou schémas à joindre en PDF</ACompleter>
-              ) : (
-                <ul class="productions">
-                  {productions.map((prod) =>
-                    prod.present ? (
-                      <li>
-                        <a href={prod.fichier} download>
-                          {prod.titre}
-                        </a>
-                        <span class="detail">
-                          {TYPES[prod.type]}, {prod.format}, {prod.taille}
-                        </span>
-                      </li>
-                    ) : (
-                      <li>
-                        {prod.titre} <ACompleter>déposer le fichier public{prod.fichier}</ACompleter>
-                      </li>
-                    ),
-                  )}
-                </ul>
-              )
-            }
-          </dd>
-        </div>
       </dl>
     </aside>
 
@@ -198,18 +165,6 @@ const productions = d.productions.map((prod) => {
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-  .productions {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0.6rem;
-  }
-  .productions .detail {
-    display: block;
-    color: var(--gris);
-    font-size: 0.8125rem;
   }
   .voisines {
     display: flex;

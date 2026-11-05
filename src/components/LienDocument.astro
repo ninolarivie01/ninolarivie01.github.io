@@ -1,0 +1,15 @@
+---
+// Lien vers un document : il s'ouvre dans le lecteur PDF du navigateur, dans un nouvel onglet
+// (annoncé dans le libellé, comme le demande le RGAA), pour que la fiche reste ouverte.
+import type { Production } from '../lib/productions';
+
+interface Props {
+  production: Production;
+  class?: string;
+}
+const { production: p, class: classe } = Astro.props;
+---
+
+<a href={p.fichier} target="_blank" rel="noopener" class={classe}>
+  <slot>{p.titre}</slot><span class="sr">, {p.format}, {p.taille}, s'ouvre dans un nouvel onglet</span>
+</a>

@@ -1,0 +1,101 @@
+---
+// Bloc « Documents » placé en tête de chaque fiche de réalisation.
+import ACompleter from './ACompleter.astro';
+import LienDocument from './LienDocument.astro';
+import type { Production } from '../lib/productions';
+
+interface Props {
+  productions: Production[];
+}
+const { productions } = Astro.props;
+---
+
+<section class="documents" aria-labelledby="titre-documents">
+  <h2 id="titre-documents">Documents</h2>
+  {
+    productions.length === 0 ? (
+      <p class="vide">
+        <ACompleter>procédures, comptes rendus ou schémas à joindre en PDF</ACompleter>
+      </p>
+    ) : (
+      <ul>
+        {productions.map((p) => (
+          <li>
+            <p class="type">{p.libelleType}</p>
+            {p.present ? (
+              <>
+                <LienDocument production={p} class="titre" />
+                <p class="detail" aria-hidden="true">
+                  {p.format}, {p.taille}, s'ouvre dans un nouvel onglet
+                </p>
+              </>
+            ) : (
+              <p class="titre">
+                {p.titre} <ACompleter>déposer le fichier public{p.fichier}</ACompleter>
+              </p>
+            )}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</section>
+
+<style>
+  .documents {
+    display: grid;
+    grid-template-columns: minmax(14rem, 19rem) minmax(0, 1fr);
+    gap: 0.5rem clamp(2rem, 6vw, 6rem);
+    margin-bottom: 3rem;
+    padding: 1.25rem 0;
+    border-block: 1px solid var(--noir);
+  }
+  h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    gap: 1rem 2rem;
+  }
+  li {
+    border-left: 3px solid var(--brique);
+    padding-left: 0.9rem;
+  }
+  .type,
+  .detail {
+    margin: 0;
+    font: 400 0.8125rem/1.4 var(--titre);
+    color: var(--gris);
+  }
+  .titre {
+    display: inline-block;
+    margin: 0.15rem 0 0.2rem;
+    font: 600 1.0625rem/1.3 var(--titre);
+  }
+  a.titre:hover {
+    text-decoration-thickness: 2px;
+  }
+  .vide {
+    margin: 0;
+  }
+  @media (max-width: 52rem) {
+    .documents {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media print {
+    .documents {
+      grid-template-columns: 1fr;
+    }
+    a.titre::after {
+      content: ' (' attr(href) ')';
+      font-weight: 400;
+      font-size: 0.85em;
+    }
+  }
+</style>
