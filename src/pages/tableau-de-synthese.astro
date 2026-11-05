@@ -40,11 +40,11 @@ const xlsxPresent = existsSync(join(process.cwd(), 'public', XLSX));
 
   <section aria-labelledby="titre-tableau">
     <h2 id="titre-tableau" class="sr">Réalisations et compétences mobilisées</h2>
-    <Matrice idTitre="titre-tableau" detaille />
+    <Matrice detaille />
   </section>
 
   <p class="legende">
-    Un carré indique que la réalisation mobilise la compétence. Les intitulés détaillés des six compétences sont sur la
+    Un carré, ou une étiquette sur petit écran, indique que la réalisation mobilise la compétence. Les intitulés détaillés des six compétences sont sur la
     page <a href="/competences/">Compétences</a>.
   </p>
 </Base>

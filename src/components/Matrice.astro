@@ -5,19 +5,19 @@ import { COMPETENCES } from '../data/competences';
 import { realisationsParGroupe, realisationsPubliees, periode } from '../lib/realisations';
 
 interface Props {
-  idTitre: string;
   /** Affiche la période de chaque réalisation et la ligne des totaux */
   detaille?: boolean;
 }
-const { idTitre, detaille = false } = Astro.props;
+const { detaille = false } = Astro.props;
 const groupes = await realisationsParGroupe();
 const toutes = await realisationsPubliees();
 const total = (id: string) => toutes.filter((r) => (r.data.competences as string[]).includes(id)).length;
 const nbColonnes = COMPETENCES.length + (detaille ? 2 : 1);
 ---
 
-<div class="defilement matrice" role="region" aria-labelledby={idTitre} tabindex="0">
+<div class="defilement matrice" role="region" aria-label="Tableau des réalisations, défilable horizontalement" tabindex="0">
   <table>
+    <caption class="sr">Réalisations et compétences du bloc 1 qu'elles mobilisent</caption>
     <thead>
       <tr>
         <th scope="col" class="col-titre">Réalisation</th>
@@ -127,7 +127,7 @@ const nbColonnes = COMPETENCES.length + (detaille ? 2 : 1);
     border-bottom: 1px solid var(--filet);
     border-left: 1px solid var(--fond-2);
   }
-  td.periode {
+  tbody td.periode {
     text-align: left;
     font: 400 0.8125rem/1.3 var(--titre);
     color: var(--gris);
@@ -196,13 +196,19 @@ const nbColonnes = COMPETENCES.length + (detaille ? 2 : 1);
       border: 0;
       padding: 0 0 0.2rem;
     }
+    /* Les cellules sortent du modèle de tableau : sinon la fusion des bordures efface celle des étiquettes */
+    table,
+    tbody {
+      display: block;
+    }
     tbody td {
+      display: inline-block;
       border: 0;
     }
     tbody td:empty {
       display: none;
     }
-    .oui {
+    tbody td.oui {
       font: 500 0.75rem/1 var(--titre);
       padding: 0.35rem 0.5rem;
       border: 1px solid var(--brique);
@@ -214,6 +220,7 @@ const nbColonnes = COMPETENCES.length + (detaille ? 2 : 1);
     .oui::after {
       content: attr(data-c);
     }
+    tbody tr.groupe,
     .groupe th {
       display: block;
     }
