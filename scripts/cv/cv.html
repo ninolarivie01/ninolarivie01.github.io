@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>CV, Nino Larivière-Gillet</title>
+<!-- Source du CV en PDF : ouvrir dans Edge ou Chrome, Imprimer, « Enregistrer au format PDF », marges aucune, graphiques d'arrière-plan cochés. -->
+<style>
+  @font-face { font-family: 'Schibsted Grotesk'; src: url('../../public/fonts/schibsted-grotesk-latin-wght-normal.woff2') format('woff2'); font-weight: 400 900; }
+  @font-face { font-family: 'Literata'; src: url('../../public/fonts/literata-latin-wght-normal.woff2') format('woff2'); font-weight: 200 900; }
+  :root {
+    --noir: #1c1714;
+    --brique: #8a3a27;
+    --gris: #59504a;
+    --filet: #c8bdac;
+    --fond: #f2ede3;
+    --titre: 'Schibsted Grotesk', system-ui, sans-serif;
+    --texte: 'Literata', Georgia, serif;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #fff; color: var(--noir); }
+  body { font: 400 8.6pt/1.42 var(--texte); }
+  .page {
+    width: 210mm; height: 297mm; overflow: hidden;
+    display: grid; grid-template-columns: 1fr 64mm; grid-template-rows: auto 1fr;
+  }
+  h1, h2, h3, .titre { font-family: var(--titre); margin: 0; }
+  p { margin: 0; }
+  ul { margin: 0; padding: 0; list-style: none; }
+
+  /* En-tête */
+  header {
+    grid-column: 1 / -1;
+    padding: 11mm 14mm 5mm;
+    border-bottom: 1.2mm solid var(--brique);
+    display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 8mm;
+  }
+  h1 { font-size: 27pt; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+  .poste { margin-top: 2.2mm; font: 600 10.5pt/1.3 var(--titre); color: var(--brique); }
+  .contact { font: 400 8.2pt/1.6 var(--titre); text-align: right; color: var(--gris); }
+  .contact strong { color: var(--noir); font-weight: 600; }
+
+  /* Colonne principale */
+  main { padding: 6mm 9mm 8mm 14mm; }
+  .accroche { font-size: 8.9pt; line-height: 1.48; margin-bottom: 4.5mm; }
+  section + section { margin-top: 4.2mm; }
+  h2 {
+    font-size: 10.5pt; font-weight: 700; color: var(--noir);
+    padding-bottom: 1.2mm; margin-bottom: 2.8mm; border-bottom: 0.3mm solid var(--noir);
+  }
+  .poste-exp + .poste-exp { margin-top: 3.4mm; }
+  .entete-exp { display: flex; justify-content: space-between; gap: 4mm; align-items: baseline; }
+  h3 { font-size: 9.4pt; font-weight: 700; }
+  .date { font: 500 7.8pt/1.3 var(--titre); color: var(--brique); white-space: nowrap; }
+  .org { color: var(--gris); font-style: italic; margin: 0.4mm 0 1.2mm; }
+  main li { position: relative; padding-left: 3.4mm; }
+  main li + li { margin-top: 0.5mm; }
+  main li::before { content: ''; position: absolute; left: 0; top: 0.62em; width: 1.4mm; height: 0.35mm; background: var(--brique); }
+  .projet + .projet { margin-top: 2.6mm; }
+  .projet p { margin-top: 0.5mm; }
+  .compact .ligne { display: grid; grid-template-columns: 19mm 1fr; gap: 3mm; }
+  .compact .ligne + .ligne { margin-top: 1.1mm; }
+  .compact .date { white-space: normal; }
+
+  /* Colonne latérale */
+  aside { background: var(--fond); padding: 6mm 8mm 6mm 7mm; font-size: 8.2pt; }
+  aside h2 { font-size: 9.6pt; border-bottom-color: var(--filet); }
+  aside section + section { margin-top: 3.6mm; }
+  .groupe + .groupe { margin-top: 1.8mm; }
+  .groupe .titre { font-size: 7.8pt; font-weight: 600; color: var(--brique); margin-bottom: 0.4mm; }
+  .groupe p { font-size: 8pt; line-height: 1.36; }
+  .langue { display: flex; justify-content: space-between; }
+  .langue span:last-child { font-family: var(--titre); font-weight: 600; }
+  .langue + .langue { margin-top: 1mm; }
+  aside li + li { margin-top: 0.9mm; }
+  .petit { color: var(--gris); font-size: 7.6pt; }
+  .certifs { margin-top: 1mm; }
+  .certifs li + li { margin-top: 0.6mm; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div>
+      <h1>Nino Larivière-Gillet</h1>
+      <p class="poste">Technicien support et infrastructure, en alternance</p>
+    </div>
+    <p class="contact">
+      <strong>nlarivie35@gmail.com</strong><br>
+      linkedin.com/in/nino-larivière-gillet-503276248<br>
+      Portfolio : <strong>ninolarivie01.github.io</strong><br>
+      Rennes
+    </p>
+  </header>
+
+  <main>
+    <p class="accroche">
+      En 2e année de BTS SIO option SISR à l'AFTEC, en alternance au centre de service de la Direction des services
+      numériques du Département d'Ille-et-Vilaine. Après une licence d'économie-gestion, je me suis réorienté vers
+      l'informatique, qui me passionne : l'administration réseau et la cybersécurité en particulier. Objectif :
+      poursuivre jusqu'à bac+5 en alternance.
+    </p>
+
+    <section>
+      <h2>Expérience</h2>
+      <div class="poste-exp">
+        <div class="entete-exp"><h3>Apprenti technicien support de niveau 1</h3><span class="date">sept. 2026 – juil. 2027</span></div>
+        <p class="org">Département d'Ille-et-Vilaine, Direction des services numériques, centre de service, Rennes</p>
+        <ul>
+          <li>Support des agents sous EasyVista, sur site ou à distance par MECM ; escalade au niveau 2</li>
+          <li>Remasterisation de postes d'occasion sous Windows 11 par PXE, chiffrement BitLocker</li>
+          <li>Suivi des postes dans Active Directory, MECM et EasyVista</li>
+          <li>Diagnostic des lenteurs avec Nexthink et ajout de mémoire vive</li>
+          <li>Échanges de ports au brassage ; transmission des réparations au prestataire</li>
+        </ul>
+      </div>
+      <div class="poste-exp">
+        <div class="entete-exp"><h3>Stagiaire, support informatique</h3><span class="date">juin – juil. 2026</span></div>
+        <p class="org">Pôle Saint-Hélier, service informatique, Rennes</p>
+        <ul>
+          <li>Environ une centaine de tickets GLPI de niveau 1 et 2 : comptes, Outlook, Teams, postes</li>
+          <li>Remplacement des postes de plusieurs salles et mise à jour de l'inventaire GLPI</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projets de formation</h2>
+      <div class="projet">
+        <div class="entete-exp"><h3>Next Flow-NET, infrastructure d'une entreprise fictive</h3><span class="date">2026 – 2027</span></div>
+        <p>En équipe de 3. Configuration et documentation du pare-feu FortiGate : 11 VLAN, isolement des services, politiques de filtrage, NAT, sécurisation de l'administration, plan de 18 tests.</p>
+      </div>
+      <div class="projet">
+        <div class="entete-exp"><h3>SI Albatros, mini-SI d'une PME de 50 postes</h3><span class="date">oct. 2026</span></div>
+        <p>Seul. Active Directory, GLPI relié à l'annuaire en LDAPS, supervision Zabbix, journaux Loki et Grafana, sauvegarde restic, sous Docker Compose ; incidents simulés et traités, restauration de GLPI.</p>
+      </div>
+      <div class="projet">
+        <div class="entete-exp"><h3>Services d'infrastructure sous Windows Server et Debian</h3><span class="date">2025 – 2026</span></div>
+        <p>Domaine Active Directory, GPO et partages ; DHCP et DNS sous Windows Server 2025 et sous Debian 13 (isc-dhcp-server, BIND9) ; mise en ligne d'un site WordPress.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Formation</h2>
+      <div class="compact">
+        <div class="ligne"><span class="date">2025 – 2027</span><p><strong>BTS SIO option SISR</strong>, AFTEC Rennes, en alternance</p></div>
+        <div class="ligne"><span class="date">2024 – 2025</span><p><strong>Master Monnaie, Banque, Finance, Assurance</strong>, commencé, arrêté pour me réorienter</p></div>
+        <div class="ligne"><span class="date">2021 – 2024</span><p><strong>Licence Économie-Gestion</strong>, Université de Rennes 1</p></div>
+        <div class="ligne"><span class="date">2021</span><p><strong>Baccalauréat général</strong>, mention assez bien, Lycée Saint-Martin, Rennes</p></div>
+      </div>
+    </section>
+  </main>
+
+  <aside>
+    <section>
+      <h2>Compétences techniques</h2>
+      <div class="groupe"><p class="titre">Systèmes</p><p>Windows 10 et 11, Windows Server, Debian 13, Ubuntu, Kali Linux</p></div>
+      <div class="groupe"><p class="titre">Services</p><p>Active Directory, GPO, DNS, DHCP, BIND9, LDAPS</p></div>
+      <div class="groupe"><p class="titre">Parc et support</p><p>GLPI, EasyVista, MECM, Nexthink, PXE, BitLocker</p></div>
+      <div class="groupe"><p class="titre">Réseau et sécurité</p><p>FortiGate (VLAN, filtrage, NAT), brassage, Cisco Packet Tracer, Wireshark</p></div>
+      <div class="groupe"><p class="titre">Virtualisation et supervision</p><p>VMware Workstation, Docker Compose, Zabbix, Grafana</p></div>
+      <div class="groupe"><p class="titre">Web et outils</p><p>HTML, CSS, JavaScript, PHP, WordPress, Git et GitHub, Pack Office</p></div>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <p class="petit">Badges Cisco Networking Academy, 2026</p>
+      <ul class="certifs">
+        <li>Networking Basics</li>
+        <li>Networking Devices and Initial Configuration</li>
+        <li>Network Addressing and Basic Troubleshooting</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Emplois d'été et engagement</h2>
+      <ul>
+        <li>Agent d'entretien, Derichebourg, usine Stellantis<br><span class="petit">2021 et 2023</span></li>
+        <li>Agent de fabrication, Sanden Manufacturing Europe<br><span class="petit">2022</span></li>
+        <li>Agent d'entretien communal, La Baussaine<br><span class="petit">2018 – 2020</span></li>
+        <li>Conseil municipal des jeunes et CCAS, bénévolat<br><span class="petit">2015 – 2018</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Langues</h2>
+      <p class="langue"><span>Anglais</span><span>B2 – C1</span></p>
+      <p class="langue"><span>Espagnol</span><span>B1</span></p>
+    </section>
+
+    <section>
+      <h2>Centres d'intérêt</h2>
+      <p>Course à pied, cinéma, jeux vidéo et esport, sorties entre amis</p>
+    </section>
+  </aside>
+</div>
+</body>
+</html>

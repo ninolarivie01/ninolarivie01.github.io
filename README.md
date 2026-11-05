@@ -43,7 +43,7 @@ Copier `src/content/veille/_modele.md`, le renommer (par exemple `2026-12-nis2-c
 | Identité, e-mail, LinkedIn | `src/data/profil.ts` |
 | Intitulés des 6 compétences | `src/data/competences.ts` |
 | Tableau officiel (.xlsx) | généré par `python scripts/tableau-synthese.py <modèle.xlsx>` (prérequis : `pip install openpyxl pyyaml`) à partir des fiches ; le relancer après chaque nouvelle réalisation |
-| CV en PDF | `public/documents/cv-nino-lariviere-gillet.pdf` |
+| CV en PDF | source `scripts/cv/cv.html` : l'ouvrir dans Edge ou Chrome, Imprimer, « Enregistrer au format PDF » (marges : aucune, graphiques d'arrière-plan cochés), puis remplacer `public/documents/cv-nino-lariviere-gillet.pdf`. Penser à reporter les changements sur `src/pages/cv.astro` |
 | Couleurs et typographie | `src/styles/global.css` (variables en haut du fichier) |
 
 ## Comment c'est construit
