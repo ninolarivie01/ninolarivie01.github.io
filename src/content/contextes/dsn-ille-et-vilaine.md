@@ -3,13 +3,13 @@ organisation: Département d'Ille-et-Vilaine
 nomCourt: DSN d'Ille-et-Vilaine
 cadre: alternance
 annee: 2
-service: Centre de service de la Direction des services numériques (DSN)
+service: Centre de service de la Direction des services numériques (DSN), support de niveau 1
 periode: Septembre 2026 à juillet 2027
-resume: "Alternance de 2e année au centre de service de la DSN du Département d'Ille-et-Vilaine, à Rennes."
+resume: "Alternance de 2e année au centre de service de la DSN du Département d'Ille-et-Vilaine, à Rennes, au sein de l'équipe de support de niveau 1."
 environnement:
   - Postes Windows 11
   - Active Directory
-  - MECM (Microsoft Endpoint Configuration Manager)
+  - MECM (Microsoft Endpoint Configuration Manager), dont la prise en main à distance
   - Déploiement par PXE
   - EasyVista (gestion des demandes et du parc)
 ordre: 1
@@ -17,11 +17,11 @@ ordre: 1
 
 ## L'organisation
 
-Le Département d'Ille-et-Vilaine est une collectivité territoriale. [À COMPLÉTER : compétences principales du Département, nombre d'agents et de sites, en reprenant uniquement des chiffres publics]
+Le Département d'Ille-et-Vilaine est une collectivité territoriale. Ses principales compétences sont les solidarités (protection de l'enfance, autonomie des personnes âgées et handicapées, insertion), les collèges et les routes départementales.
 
 ## Mon service
 
-La Direction des services numériques (DSN) gère le système d'information du Département. J'y travaille au sein du centre de service. [À COMPLÉTER : rôle du centre de service, place dans l'organigramme de la DSN, taille de l'équipe sans nommer personne]
+La Direction des services numériques (DSN) gère le système d'information du Département. Son centre de service compte une vingtaine de personnes. J'y travaille dans l'équipe de support de niveau 1, qui compte une dizaine de personnes : nous traitons les demandes des agents sur site ou à distance, par la prise en main de MECM.
 
 ## Mes missions
 
@@ -34,4 +34,4 @@ La Direction des services numériques (DSN) gère le système d'information du D
 
 ## Mon rythme d'alternance
 
-[À COMPLÉTER : rythme école / entreprise]
+Trois jours par semaine au Département, deux jours en formation à l'AFTEC.

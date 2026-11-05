@@ -27,10 +27,16 @@ import ACompleter from '../components/ACompleter.astro';
     <h2>Tests réalisés</h2>
     <ul>
       <li>Contrôle des contrastes de couleurs : 15,2 : 1 pour le texte principal, 6,6 : 1 pour la couleur d'accent.</li>
-      <li>Tests automatiques avec axe-core sur toutes les pages. <ACompleter>date et résultat</ACompleter></li>
-      <li>Navigation au clavier, focus visible et lien d'évitement. <ACompleter>date et résultat</ACompleter></li>
-      <li>Affichage de 360 pixels de large à grand écran, zoom du texte à 200 %. <ACompleter>date et résultat</ACompleter></li>
-      <li><ACompleter>test avec un lecteur d’écran, par exemple NVDA</ACompleter></li>
+      <li>
+        Tests automatiques avec axe-core (règles WCAG 2.2 A et AA) sur les 30 pages, à 1440 et à 360 pixels de large :
+        aucune erreur relevée, le 5 novembre 2026.
+      </li>
+      <li>
+        Navigation au clavier : le lien d'évitement apparaît à la première tabulation, le focus est toujours visible, le
+        filtre des réalisations s'utilise aux flèches. Vérifié le 5 novembre 2026.
+      </li>
+      <li>Affichage de 360 à 1440 pixels de large sans défilement horizontal, vérifié sur toutes les pages le 5 novembre 2026.</li>
+      <li>Fonctionnement sans JavaScript : tous les contenus restent accessibles.</li>
     </ul>
 
     <h2>Contenus non accessibles</h2>

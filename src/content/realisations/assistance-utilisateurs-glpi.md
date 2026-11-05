@@ -1,8 +1,8 @@
 ---
 titre: "Assistance aux utilisateurs sous GLPI"
 resume: "Prendre en charge les demandes d'assistance des utilisateurs du Pôle Saint-Hélier dans l'outil de ticketing GLPI, de leur réception à leur clôture."
-debut:
-fin:
+debut: 2026-06-22
+fin: 2026-07-24
 cadre: stage
 annee: 1
 organisation: pole-saint-helier
@@ -17,7 +17,7 @@ ordre: 1
 
 ## Contexte et besoin
 
-Pendant mon stage de 1re année au Pôle Saint-Hélier, j'ai traité des demandes d'assistance des utilisateurs dans GLPI. [À COMPLÉTER : dates JJ/MM/AA – JJ/MM/AA, types d'utilisateurs, organisation du support]
+Pendant mon stage de 1re année au Pôle Saint-Hélier, j'ai traité des demandes d'assistance des utilisateurs dans GLPI. [À COMPLÉTER : types d'utilisateurs, organisation du support]
 
 ## Objectifs
 

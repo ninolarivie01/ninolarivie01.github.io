@@ -1,8 +1,8 @@
 ---
 titre: "Gestion du parc informatique sous GLPI"
 resume: "Tenir à jour l'inventaire du parc du Pôle Saint-Hélier dans GLPI en enregistrant les entrées et les sorties de postes."
-debut:
-fin:
+debut: 2026-06-22
+fin: 2026-07-24
 cadre: stage
 annee: 1
 organisation: pole-saint-helier
@@ -17,8 +17,7 @@ ordre: 2
 
 ## Contexte et besoin
 
-Un inventaire à jour permet de savoir quel matériel est en service, où, et pour qui. Pendant mon stage, j'ai enregistré dans GLPI les entrées et les sorties de postes. [À COMPLÉTER : dates JJ/MM/AA – JJ/MM/AA, volume du parc si c'est une information publique]
-
+Un inventaire à jour permet de savoir quel matériel est en service, où, et pour qui. Pendant mon stage, j'ai enregistré dans GLPI les entrées et les sorties de postes.
 ## Objectifs
 
 [À COMPLÉTER]

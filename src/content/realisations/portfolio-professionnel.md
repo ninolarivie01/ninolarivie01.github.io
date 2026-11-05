@@ -47,7 +47,15 @@ Le portfolio est le support officiel de l'épreuve E5. Mon premier portfolio, pu
 
 ## Résultats et validation
 
-[À COMPLÉTER : scores Lighthouse et résultat des tests d'accessibilité, une fois mesurés]
+Mesures du 5 novembre 2026, avant la mise en ligne :
+
+| Test | Outil | Résultat |
+|---|---|---|
+| Performance, accessibilité, bonnes pratiques, référencement | Lighthouse, mobile et desktop, 6 pages types | 100 dans les 4 catégories |
+| Accessibilité WCAG 2.2 AA | axe-core, 30 pages, à 1440 et 360 pixels | aucune erreur |
+| Liens internes | script de vérification | 37 liens, aucun cassé |
+| Vie privée | analyse des requêtes du navigateur | aucune ressource tierce, aucun cookie |
+| Fonctionnement | 15 tests automatisés : clavier, filtre, sans JavaScript, impression | tous réussis |
 
 ## Bilan
 

@@ -6,6 +6,7 @@ fin:
 cadre: formation
 annee: 2
 modalite: equipe
+tailleEquipe: 3
 competences:
   - patrimoine
   - projet

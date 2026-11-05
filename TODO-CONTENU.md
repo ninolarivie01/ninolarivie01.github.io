@@ -2,26 +2,12 @@
 
 Fichier généré par `npm run todo` le 5 novembre 2026 : ne pas modifier à la main.
 
-**139 information(s) manquante(s)** dans 23 fichier(s). Objectif avant l'oral : zéro.
+**113 information(s) manquante(s)** dans 17 fichier(s). Objectif avant l'oral : zéro.
 
 ## public/documents
 
 - [ ] tableau de synthèse officiel rempli (.xlsx) : déposer public/documents/tableau-de-synthese-e5.xlsx
 - [ ] CV en PDF : déposer public/documents/cv-nino-lariviere-gillet.pdf
-
-## src/content/contextes/dsn-ille-et-vilaine.md
-
-- [ ] ligne 20 : compétences principales du Département, nombre d'agents et de sites, en reprenant uniquement des chiffres publics
-- [ ] ligne 24 : rôle du centre de service, place dans l'organigramme de la DSN, taille de l'équipe sans nommer personne
-- [ ] ligne 37 : rythme école / entreprise
-
-## src/content/contextes/pole-saint-helier.md
-
-- [ ] ligne 6 : nom du service informatique
-- [ ] ligne 7 : dates du stage, JJ/MM/AA – JJ/MM/AA
-- [ ] ligne 11 : autres outils et systèmes utilisés
-- [ ] ligne 17 : activité, statut et taille de l'établissement, en reprenant uniquement des informations publiques
-- [ ] ligne 21 : présentation du service informatique, son périmètre, la taille de l'équipe sans nommer personne
 
 ## src/content/realisations/ajout-memoire-vive.md
 
@@ -38,7 +24,7 @@ Fichier généré par `npm run todo` le 5 novembre 2026 : ne pas modifier à la 
 
 ## src/content/realisations/assistance-utilisateurs-glpi.md
 
-- [ ] ligne 20 : dates JJ/MM/AA – JJ/MM/AA, types d'utilisateurs, organisation du support
+- [ ] ligne 20 : types d'utilisateurs, organisation du support
 - [ ] ligne 24 : par exemple prendre en charge les tickets de niveau 1 dans les délais du service
 - [ ] ligne 28 : réception et qualification du ticket
 - [ ] ligne 29 : diagnostic et traitement, ou escalade
@@ -88,15 +74,14 @@ Fichier généré par `npm run todo` le 5 novembre 2026 : ne pas modifier à la 
 
 ## src/content/realisations/gestion-parc-glpi.md
 
-- [ ] ligne 20 : dates JJ/MM/AA – JJ/MM/AA, volume du parc si c'est une information publique
-- [ ] ligne 24 : rédiger la section « Objectifs »
-- [ ] ligne 28 : enregistrement d'un poste à son arrivée, avec les informations saisies
-- [ ] ligne 29 : affectation à un utilisateur ou à un service
-- [ ] ligne 30 : sortie d'inventaire d'un poste retiré
-- [ ] ligne 34 : rédiger la section « Difficultés et solutions »
-- [ ] ligne 38 : rédiger la section « Résultats et validation »
-- [ ] ligne 44 : rédiger la section « Ce que j'ai appris »
-- [ ] ligne 48 : rédiger la section « Ce que je ferais autrement »
+- [ ] ligne 23 : rédiger la section « Objectifs »
+- [ ] ligne 27 : enregistrement d'un poste à son arrivée, avec les informations saisies
+- [ ] ligne 28 : affectation à un utilisateur ou à un service
+- [ ] ligne 29 : sortie d'inventaire d'un poste retiré
+- [ ] ligne 33 : rédiger la section « Difficultés et solutions »
+- [ ] ligne 37 : rédiger la section « Résultats et validation »
+- [ ] ligne 43 : rédiger la section « Ce que j'ai appris »
+- [ ] ligne 47 : rédiger la section « Ce que je ferais autrement »
 
 ## src/content/realisations/mise-en-ligne-wordpress.md
 
@@ -109,26 +94,25 @@ Fichier généré par `npm run todo` le 5 novembre 2026 : ne pas modifier à la 
 
 ## src/content/realisations/next-flow-net.md
 
-- [ ] ligne 27 : cahier des charges, taille et sites de l'entreprise fictive, dates du projet JJ/MM/AA – JJ/MM/AA
-- [ ] ligne 31 : objectifs fixés par le cahier des charges
-- [ ] ligne 35 : analyse du besoin et répartition des tâches
-- [ ] ligne 36 : planification, outil utilisé et jalons
-- [ ] ligne 37 : mise en place du pare-feu FortiGate
-- [ ] ligne 38 : détail des étapes
-- [ ] ligne 39 : tests et recette
-- [ ] ligne 43 : rédiger la section « Difficultés et solutions »
-- [ ] ligne 47 : tests réalisés, indicateurs de suivi et écarts constatés par rapport au planning
-- [ ] ligne 51 : ce que j'ai fait personnellement, ce qu'ont fait les autres membres (sans les nommer), comment nous nous sommes coordonnés
-- [ ] ligne 57 : rédiger la section « Ce que j'ai appris »
-- [ ] ligne 61 : rédiger la section « Ce que je ferais autrement »
+- [ ] ligne 28 : cahier des charges, taille et sites de l'entreprise fictive, dates du projet JJ/MM/AA – JJ/MM/AA
+- [ ] ligne 32 : objectifs fixés par le cahier des charges
+- [ ] ligne 36 : analyse du besoin et répartition des tâches
+- [ ] ligne 37 : planification, outil utilisé et jalons
+- [ ] ligne 38 : mise en place du pare-feu FortiGate
+- [ ] ligne 39 : détail des étapes
+- [ ] ligne 40 : tests et recette
+- [ ] ligne 44 : rédiger la section « Difficultés et solutions »
+- [ ] ligne 48 : tests réalisés, indicateurs de suivi et écarts constatés par rapport au planning
+- [ ] ligne 52 : ce que j'ai fait personnellement, ce qu'ont fait les autres membres (sans les nommer), comment nous nous sommes coordonnés
+- [ ] ligne 58 : rédiger la section « Ce que j'ai appris »
+- [ ] ligne 62 : rédiger la section « Ce que je ferais autrement »
 
 ## src/content/realisations/portfolio-professionnel.md
 
 - [ ] ligne 40 : préciser ma part exacte : rédaction des contenus, choix, relecture du code, tests
 - [ ] ligne 46 : rédiger la section « Difficultés et solutions »
-- [ ] ligne 50 : scores Lighthouse et résultat des tests d'accessibilité, une fois mesurés
-- [ ] ligne 56 : rédiger la section « Ce que j'ai appris »
-- [ ] ligne 60 : rédiger la section « Ce que je ferais autrement »
+- [ ] ligne 64 : rédiger la section « Ce que j'ai appris »
+- [ ] ligne 68 : rédiger la section « Ce que je ferais autrement »
 
 ## src/content/realisations/presence-en-ligne-departement.md
 
@@ -168,46 +152,18 @@ Fichier généré par `npm run todo` le 5 novembre 2026 : ne pas modifier à la 
 - [ ] ligne 46 : rédiger la section « Ce que j'ai appris »
 - [ ] ligne 50 : rédiger la section « Ce que je ferais autrement »
 
-## src/data/certifications.yaml
-
-- [ ] ligne 8 : préciser si le MOOC est terminé, la date et déposer l'attestation
-- [ ] ligne 10 : intitulé exact du ou des cours Cisco Networking Academy
-- [ ] ligne 13 : date d'obtention et attestation
-
 ## src/pages/accessibilite.astro
 
-- [ ] ligne 30 : date et résultat
-- [ ] ligne 31 : date et résultat
-- [ ] ligne 32 : date et résultat
-- [ ] ligne 33 : test avec un lecteur d’écran, par exemple NVDA
-- [ ] ligne 49 : date de mise en ligne
-
-## src/pages/confidentialite.astro
-
-- [ ] ligne 42 : durée de conservation des échanges, par exemple jusqu’à la fin de la session d’examen
-
-## src/pages/cv.astro
-
-- [ ] ligne 49 : dates du stage
-- [ ] ligne 102 : langues et niveau, centres d’intérêt réels
+- [ ] ligne 55 : date de mise en ligne
 
 ## src/pages/mentions-legales.astro
 
 - [ ] ligne 59 : date de dernière mise à jour de cette page, à la mise en ligne
 
-## src/pages/parcours.astro
-
-- [ ] ligne 56 : …
-- [ ] ligne 77 : le déclic qui m’a fait passer de l’économie à l’informatique, en quelques phrases concrètes
-- [ ] ligne 82 : un exemple réel où cette double compétence m’a servi
-- [ ] ligne 93 : formation visée après le BTS, en alternance ou non, intérêt éventuel pour la fonction publique et ses concours
-
 ## src/pages/veille/index.astro
 
-- [ ] ligne 31 : ce qui m’intéresse personnellement dans ce sujet
-- [ ] ligne 35 : la question précise que je suis, par exemple : quelles obligations NIS 2 imposera aux départements, et à quel calendrier ?
-- [ ] ligne 42 : lecteur de flux RSS utilisé, par exemple Inoreader ou Feedly
-- [ ] ligne 43 : alertes mises en place et leurs mots-clés
-- [ ] ligne 44 : temps consacré par semaine et rythme de publication
-- [ ] ligne 46 : liste réelle, par exemple CERT-FR, ANSSI, cybermalveillance.gouv.fr, Banque des Territoires, Maire-info
-- [ ] ligne 57 : première synthèse à publier (copier src/content/veille/_modele.md)
+- [ ] ligne 39 : lecteur de flux RSS utilisé, par exemple Inoreader ou Feedly
+- [ ] ligne 40 : alertes mises en place et leurs mots-clés
+- [ ] ligne 41 : temps consacré par semaine et rythme de publication
+- [ ] ligne 43 : liste réelle, par exemple CERT-FR, ANSSI, cybermalveillance.gouv.fr, Banque des Territoires, Maire-info
+- [ ] ligne 54 : première synthèse à publier (copier src/content/veille/_modele.md)

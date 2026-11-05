@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import ACompleter from '../components/ACompleter.astro';
 
 const ETAPES = [
   {
@@ -10,15 +9,13 @@ const ETAPES = [
   },
   {
     annees: '2021 – 2024',
-    titre: 'Licence Économie-Gestion',
+    titre: 'Licence Économie-Gestion, obtenue',
     lieu: 'Université de Rennes 1',
-    todo: 'préciser si la licence est obtenue',
   },
   {
     annees: '2024 – 2025',
-    titre: null,
-    lieu: null,
-    todo: 'ce que j’ai fait entre la licence et le BTS',
+    titre: 'Master Monnaie, Banque, Finance, Assurance (MBFA), commencé',
+    lieu: "Arrêté en cours d'année pour me réorienter vers l'informatique",
   },
   {
     annees: '2025 – 2027',
@@ -51,11 +48,6 @@ const ETAPES = [
             <div>
               {e.titre && <h3>{e.titre}</h3>}
               {e.lieu && <p class="lieu">{e.lieu}</p>}
-              {e.todo && (
-                <p>
-                  <ACompleter>{e.todo}</ACompleter>
-                </p>
-              )}
               {e.sous && (
                 <ul>
                   {e.sous.map((s) => (
@@ -74,23 +66,21 @@ const ETAPES = [
     <section class="prose" aria-labelledby="titre-reconversion">
       <h2 id="titre-reconversion">Pourquoi je me suis reconverti</h2>
       <p>
-        <ACompleter>le déclic qui m’a fait passer de l’économie à l’informatique, en quelques phrases concrètes</ACompleter>
+        Pendant mes études d'économie, l'informatique occupait déjà une grande partie de mon temps libre. Après ma licence,
+        j'ai commencé un master en finance, puis j'ai choisi de m'arrêter pour faire de l'informatique mon métier, par un
+        BTS en alternance.
       </p>
       <p>
-        Ma licence me sert au quotidien dans le support : comprendre comment fonctionne une organisation, ce que coûte un
-        matériel ou une interruption de service, et dans quel cadre réglementaire on travaille.
-        <ACompleter>un exemple réel où cette double compétence m’a servi</ACompleter>
+        Ma formation en économie-gestion me donne un regard utile dans le support : comprendre comment fonctionne une
+        organisation, ce que coûte un matériel ou une interruption de service, et dans quel cadre réglementaire on travaille.
       </p>
     </section>
 
     <section class="prose" aria-labelledby="titre-projet">
       <h2 id="titre-projet">Mon projet professionnel</h2>
       <p>
-        À terme, je veux travailler dans les réseaux et la cybersécurité. Après le BTS, je compte poursuivre mes études
-        jusqu'à bac+5.
-      </p>
-      <p>
-        <ACompleter>formation visée après le BTS, en alternance ou non, intérêt éventuel pour la fonction publique et ses concours</ACompleter>
+        À terme, je veux travailler dans les réseaux et la cybersécurité. Après le BTS, je compte poursuivre jusqu'à bac+5,
+        toujours en alternance, probablement à l'ENI École Informatique de Rennes.
       </p>
     </section>
   </div>
