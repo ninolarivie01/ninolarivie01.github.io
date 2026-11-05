@@ -1,0 +1,156 @@
+---
+import '../styles/global.css';
+import { PROFIL, SITE } from '../data/profil';
+
+interface Props {
+  titre: string;
+  description: string;
+  /** Données structurées JSON-LD propres à la page */
+  jsonLd?: Record<string, unknown>;
+  type?: 'website' | 'article' | 'profile';
+}
+
+const { titre, description, jsonLd, type = 'website' } = Astro.props;
+const canonique = new URL(Astro.url.pathname, Astro.site);
+const titreComplet = Astro.url.pathname === '/' ? SITE.titre : `${titre}, ${PROFIL.nom}`;
+const imageOg = new URL('/og.png', Astro.site);
+
+const NAV = [
+  { href: '/parcours/', libelle: 'Parcours' },
+  { href: '/contextes/', libelle: 'Contextes' },
+  { href: '/realisations/', libelle: 'Réalisations' },
+  { href: '/tableau-de-synthese/', libelle: 'Tableau de synthèse' },
+  { href: '/veille/', libelle: 'Veille' },
+  { href: '/cv/', libelle: 'CV' },
+  { href: '/contact/', libelle: 'Contact' },
+];
+const courant = (href: string) => Astro.url.pathname.startsWith(href);
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titreComplet}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonique} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preload" href="/fonts/literata-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <meta name="theme-color" content="#f2ede3" />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content={PROFIL.nom} />
+    <meta property="og:title" content={titreComplet} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonique} />
+    <meta property="og:image" content={imageOg} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${PROFIL.nom}, ${PROFIL.fonction}`} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <a class="evitement" href="#contenu">Aller au contenu</a>
+
+    <header class="cadre site-entete">
+      <a class="marque" href="/" aria-label={`${PROFIL.nom}, accueil`}>{PROFIL.nom}</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          {
+            NAV.map((l) => (
+              <li>
+                <a href={l.href} aria-current={courant(l.href) ? 'page' : undefined}>
+                  {l.libelle}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </header>
+
+    <main id="contenu" class="cadre" tabindex="-1">
+      <slot />
+    </main>
+
+    <footer class="cadre site-pied">
+      <p>{PROFIL.nom}, portfolio BTS SIO, session {SITE.session}</p>
+      <nav aria-label="Informations légales">
+        <ul>
+          <li><a href="/mentions-legales/">Mentions légales</a></li>
+          <li><a href="/confidentialite/">Confidentialité</a></li>
+          <li><a href="/accessibilite/">Accessibilité : non conforme</a></li>
+          <li><a href="/plan-du-site/">Plan du site</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-entete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem 2rem;
+    padding-block: 1.25rem;
+    flex-wrap: wrap;
+    font-family: var(--titre);
+  }
+  .marque {
+    font-weight: 700;
+    font-size: 1.0625rem;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .site-entete ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.4rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9375rem;
+  }
+  .site-entete ul a {
+    text-decoration: none;
+    padding-block: 0.35rem;
+    display: inline-block;
+  }
+  .site-entete ul a:hover,
+  .site-entete ul a[aria-current='page'] {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+  }
+  main {
+    outline: none;
+    padding-bottom: 4rem;
+  }
+  .site-pied {
+    border-top: 1px solid var(--noir);
+    padding-block: 1.75rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font: 400 0.875rem/1.4 var(--titre);
+    color: var(--gris);
+  }
+  .site-pied p {
+    margin: 0;
+  }
+  .site-pied ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>

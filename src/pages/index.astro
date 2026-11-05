@@ -1,0 +1,132 @@
+---
+import Base from '../layouts/Base.astro';
+import Matrice from '../components/Matrice.astro';
+import { PROFIL, SITE } from '../data/profil';
+
+const personne = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: PROFIL.nom,
+  jobTitle: PROFIL.fonction,
+  url: new URL('/', Astro.site).href,
+  sameAs: [PROFIL.linkedin],
+  address: { '@type': 'PostalAddress', addressLocality: PROFIL.ville, addressCountry: 'FR' },
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Université de Rennes 1' },
+    { '@type': 'EducationalOrganization', name: 'AFTEC Rennes' },
+  ],
+  knowsAbout: ['Support informatique', 'Administration systèmes et réseaux', 'Active Directory', 'Gestion de parc'],
+};
+---
+
+<Base titre="Accueil" description={SITE.description} jsonLd={personne} type="profile">
+  <section class="intro" aria-labelledby="titre-accueil">
+    <h1 id="titre-accueil">Technicien support et infrastructure.</h1>
+    <div>
+      <p>
+        Apprenti en BTS SIO option SISR à l'AFTEC Rennes, en alternance au centre de service de la Direction des services
+        numériques du Département d'Ille&#8209;et&#8209;Vilaine. Avant l'informatique, une licence d'économie-gestion.
+      </p>
+      <p class="note">
+        Ce portfolio est le support de mon épreuve E5, session {SITE.session}. Le tableau ci-dessous mène à chaque
+        réalisation.
+      </p>
+    </div>
+  </section>
+
+  <section class="bloc-matrice" aria-labelledby="titre-matrice">
+    <div class="matrice-tete">
+      <h2 id="titre-matrice">Mes réalisations et les compétences qu'elles mobilisent</h2>
+      <a href="/tableau-de-synthese/">Tableau de synthèse complet et version imprimable</a>
+    </div>
+    <Matrice idTitre="titre-matrice" />
+  </section>
+
+  <section class="suite" aria-label="Autres rubriques">
+    <div>
+      <h2>Contextes</h2>
+      <p>Les deux organisations où j'ai travaillé, mon service et mon environnement technique.</p>
+      <a href="/contextes/">Voir les contextes</a>
+    </div>
+    <div>
+      <h2>Veille</h2>
+      <p>La directive NIS 2 et les collectivités territoriales : ma méthode et mes synthèses datées.</p>
+      <a href="/veille/">Lire la veille</a>
+    </div>
+    <div>
+      <h2>Parcours</h2>
+      <p>De l'économie-gestion à l'informatique, et la suite que je vise.</p>
+      <a href="/parcours/">Voir le parcours</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .intro {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 2rem 4rem;
+    padding-block: clamp(2.5rem, 6vw, 5rem) 2.5rem;
+    align-items: end;
+  }
+  .intro h1 {
+    font-size: clamp(2.4rem, 5.6vw, 4.6rem);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    max-width: 13ch;
+  }
+  .intro p {
+    margin: 0 0 0.9rem;
+    max-width: 32em;
+  }
+  .intro .note {
+    margin: 0;
+    color: var(--gris);
+    font-size: 0.9375rem;
+  }
+  .bloc-matrice {
+    padding-bottom: 4rem;
+  }
+  .matrice-tete {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    flex-wrap: wrap;
+    border-top: 3px solid var(--noir);
+    padding-top: 0.8rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--titre);
+  }
+  .matrice-tete h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+  .matrice-tete a {
+    font-size: 0.9375rem;
+  }
+  .suite {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--noir);
+  }
+  .suite h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .suite p {
+    margin: 0 0 0.75rem;
+    color: var(--gris);
+    font-size: 0.9375rem;
+  }
+  @media (max-width: 56rem) {
+    .intro,
+    .suite {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

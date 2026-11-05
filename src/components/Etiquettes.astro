@@ -1,0 +1,26 @@
+---
+import { competence, type CompetenceId } from '../data/competences';
+
+interface Props {
+  ids: readonly CompetenceId[];
+  /** Les étiquettes renvoient vers la compétence détaillée */
+  liens?: boolean;
+}
+const { ids, liens = true } = Astro.props;
+---
+
+<ul class="etiquettes" aria-label="Compétences mobilisées">
+  {
+    ids.map((id) => (
+      <li>
+        {liens ? (
+          <a class="etiquette" href={`/competences/#${id}`} title={competence(id).titre}>
+            {competence(id).court}
+          </a>
+        ) : (
+          <span class="etiquette">{competence(id).court}</span>
+        )}
+      </li>
+    ))
+  }
+</ul>

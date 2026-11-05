@@ -1,0 +1,258 @@
+---
+import { existsSync, statSync } from 'node:fs';
+import { join } from 'node:path';
+import { getEntry, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Etiquettes from '../../components/Etiquettes.astro';
+import ACompleter from '../../components/ACompleter.astro';
+import { realisationsPubliees, CADRES, periode, type Realisation } from '../../lib/realisations';
+
+export async function getStaticPaths() {
+  const toutes = await realisationsPubliees();
+  return toutes.map((r, i) => ({
+    params: { id: r.id },
+    props: { realisation: r, precedente: toutes[i - 1], suivante: toutes[i + 1] },
+  }));
+}
+
+interface Props {
+  realisation: Realisation;
+  precedente?: Realisation;
+  suivante?: Realisation;
+}
+const { realisation: r, precedente, suivante } = Astro.props;
+const d = r.data;
+const { Content, headings } = await render(r);
+
+// Exigence E5 : un travail d'équipe doit expliciter la contribution personnelle.
+if (d.modalite === 'equipe' && !headings.some((h) => h.depth === 2 && h.text.trim() === 'Mon rôle')) {
+  throw new Error(`La réalisation « ${r.id} » est un travail d'équipe : ajoutez une section « ## Mon rôle ».`);
+}
+
+const organisation = d.organisation ? await getEntry(d.organisation) : undefined;
+const p = periode(d.debut, d.fin);
+const TYPES = { procedure: 'Procédure', 'compte-rendu': 'Compte rendu', schema: 'Schéma', rapport: 'Rapport', autre: 'Document' };
+const productions = d.productions.map((prod) => {
+  const chemin = join(process.cwd(), 'public', prod.fichier);
+  const present = existsSync(chemin);
+  const taille = present ? `${Math.max(1, Math.round(statSync(chemin).size / 1024))} ko` : null;
+  return { ...prod, present, taille, format: prod.fichier.split('.').pop()?.toUpperCase() };
+});
+---
+
+<Base titre={d.titre} description={d.resume} type="article">
+  <nav class="fil pas-imprime" aria-label="Fil d'Ariane">
+    <a href="/realisations/">Réalisations</a>
+  </nav>
+
+  <header class="entete-page">
+    <h1>{d.titre}</h1>
+    <p>{d.resume}</p>
+  </header>
+
+  <div class="fiche">
+    <aside class="signaletique" aria-label="Fiche signalétique">
+      <dl>
+        <div>
+          <dt>Période</dt>
+          <dd>{p ?? <ACompleter>dates JJ/MM/AA – JJ/MM/AA</ACompleter>}</dd>
+        </div>
+        <div>
+          <dt>Contexte</dt>
+          <dd>
+            {CADRES[d.cadre]}, {d.annee === 1 ? '1re' : '2e'} année
+            {d.cadre === 'formation' && <>, AFTEC Rennes</>}
+            {organisation && (
+              <>
+                , <a href={`/contextes/${organisation.id}/`}>{organisation.data.nomCourt}</a>
+              </>
+            )}
+          </dd>
+        </div>
+        <div>
+          <dt>Modalité</dt>
+          <dd>
+            {d.modalite === 'individuel' && 'Travail individuel'}
+            {
+              d.modalite === 'equipe' &&
+                (d.tailleEquipe ? (
+                  `En équipe de ${d.tailleEquipe}`
+                ) : (
+                  <>
+                    En équipe <ACompleter>nombre de membres</ACompleter>
+                  </>
+                ))
+            }
+          </dd>
+        </div>
+        <div>
+          <dt>Compétences du bloc 1</dt>
+          <dd><Etiquettes ids={d.competences} /></dd>
+        </div>
+        {
+          d.technologies.length > 0 && (
+            <div>
+              <dt>Environnement technologique</dt>
+              <dd>
+                <ul class="techno">
+                  {d.technologies.map((t) => (
+                    <li>{t}</li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          )
+        }
+        <div>
+          <dt>Productions</dt>
+          <dd>
+            {
+              productions.length === 0 ? (
+                <ACompleter>procédures, comptes rendus ou schémas à joindre en PDF</ACompleter>
+              ) : (
+                <ul class="productions">
+                  {productions.map((prod) =>
+                    prod.present ? (
+                      <li>
+                        <a href={prod.fichier} download>
+                          {prod.titre}
+                        </a>
+                        <span class="detail">
+                          {TYPES[prod.type]}, {prod.format}, {prod.taille}
+                        </span>
+                      </li>
+                    ) : (
+                      <li>
+                        {prod.titre} <ACompleter>déposer le fichier public{prod.fichier}</ACompleter>
+                      </li>
+                    ),
+                  )}
+                </ul>
+              )
+            }
+          </dd>
+        </div>
+      </dl>
+    </aside>
+
+    <article class="prose">
+      <Content />
+    </article>
+  </div>
+
+  <nav class="voisines pas-imprime" aria-label="Autres réalisations">
+    {
+      precedente && (
+        <a href={`/realisations/${precedente.id}/`} rel="prev">
+          <span>Réalisation précédente</span>
+          {precedente.data.titre}
+        </a>
+      )
+    }
+    {
+      suivante && (
+        <a href={`/realisations/${suivante.id}/`} rel="next" class="suivante">
+          <span>Réalisation suivante</span>
+          {suivante.data.titre}
+        </a>
+      )
+    }
+  </nav>
+</Base>
+
+<style>
+  .fil {
+    padding-top: 1.5rem;
+    font: 400 0.875rem/1 var(--titre);
+  }
+  .fiche {
+    display: grid;
+    grid-template-columns: minmax(14rem, 19rem) minmax(0, 1fr);
+    gap: 2rem clamp(2rem, 6vw, 6rem);
+    align-items: start;
+  }
+  .signaletique {
+    position: sticky;
+    top: 1.5rem;
+    font-family: var(--titre);
+    font-size: 0.875rem;
+  }
+  dl {
+    margin: 0;
+  }
+  dl > div {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--filet);
+  }
+  dl > div:first-child {
+    padding-top: 0;
+  }
+  dt {
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  dd {
+    margin: 0;
+  }
+  .techno {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .productions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .productions .detail {
+    display: block;
+    color: var(--gris);
+    font-size: 0.8125rem;
+  }
+  .voisines {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 4rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--noir);
+    font-family: var(--titre);
+  }
+  .voisines a {
+    text-decoration: none;
+    font-weight: 600;
+    max-width: 22rem;
+  }
+  .voisines a:hover {
+    text-decoration: underline;
+  }
+  .voisines span {
+    display: block;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    color: var(--gris);
+    margin-bottom: 0.2rem;
+  }
+  .voisines .suivante {
+    margin-left: auto;
+    text-align: right;
+  }
+  @media (max-width: 52rem) {
+    .fiche {
+      grid-template-columns: 1fr;
+    }
+    .signaletique {
+      position: static;
+    }
+  }
+  @media print {
+    .fiche {
+      grid-template-columns: 1fr;
+    }
+    .signaletique {
+      position: static;
+    }
+  }
+</style>

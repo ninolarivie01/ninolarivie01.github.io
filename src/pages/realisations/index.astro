@@ -1,0 +1,221 @@
+---
+import Base from '../../layouts/Base.astro';
+import Etiquettes from '../../components/Etiquettes.astro';
+import { COMPETENCES } from '../../data/competences';
+import { realisationsPubliees, GROUPES, CADRES, periode } from '../../lib/realisations';
+
+const realisations = (await realisationsPubliees()).reverse();
+---
+
+<Base
+  titre="Réalisations"
+  description="Toutes mes réalisations de BTS SIO SISR, en formation, en stage et en alternance, filtrables par compétence du bloc 1 et par contexte."
+>
+  <header class="entete-page">
+    <h1>Réalisations</h1>
+    <p>
+      Chaque fiche suit le même fil : contexte et besoin, démarche, difficultés, résultats, puis ce que j'en retiens. Les
+      plus récentes sont en premier.
+    </p>
+  </header>
+
+  <form class="filtres pas-imprime" id="filtres" hidden aria-label="Filtrer les réalisations">
+    <fieldset>
+      <legend>Compétence</legend>
+      <label><input type="radio" name="competence" value="" checked /> Toutes</label>
+      {
+        COMPETENCES.map((c) => (
+          <label>
+            <input type="radio" name="competence" value={c.id} /> {c.court}
+          </label>
+        ))
+      }
+    </fieldset>
+    <fieldset>
+      <legend>Contexte</legend>
+      <label><input type="radio" name="cadre" value="" checked /> Tous</label>
+      {
+        GROUPES.map((g) => (
+          <label>
+            <input type="radio" name="cadre" value={g.id} /> {g.court}
+          </label>
+        ))
+      }
+    </fieldset>
+    <p class="compte" aria-live="polite" id="compte">{realisations.length} réalisations affichées</p>
+  </form>
+
+  <ol class="liste" id="liste">
+    {
+      realisations.map((r) => (
+        <li data-competences={r.data.competences.join(' ')} data-cadre={r.data.cadre}>
+          <p class="meta">
+            {CADRES[r.data.cadre]}, {r.data.annee === 1 ? '1re' : '2e'} année
+            {r.data.modalite === 'equipe' && ', en équipe'}
+            {periode(r.data.debut, r.data.fin) && <>, {periode(r.data.debut, r.data.fin)}</>}
+          </p>
+          <h2>
+            <a href={`/realisations/${r.id}/`}>{r.data.titre}</a>
+          </h2>
+          <p class="resume">{r.data.resume}</p>
+          <Etiquettes ids={r.data.competences} liens={false} />
+        </li>
+      ))
+    }
+  </ol>
+  <p class="vide" id="vide" hidden>
+    Aucune réalisation ne correspond à ces deux critères. Choisissez « Toutes » ou « Tous » pour élargir.
+  </p>
+</Base>
+
+<script>
+  const form = document.getElementById('filtres') as HTMLFormElement;
+  const items = [...document.querySelectorAll<HTMLLIElement>('#liste > li')];
+  const compte = document.getElementById('compte')!;
+  const vide = document.getElementById('vide')!;
+  const params = new URLSearchParams(location.search);
+
+  // Le filtre n'apparaît que si JavaScript fonctionne ; sinon toutes les fiches restent visibles.
+  form.hidden = false;
+  for (const nom of ['competence', 'cadre']) {
+    const valeur = params.get(nom);
+    const radio = valeur && form.querySelector<HTMLInputElement>(`input[name="${nom}"][value="${CSS.escape(valeur)}"]`);
+    if (radio) radio.checked = true;
+  }
+
+  function appliquer() {
+    const donnees = new FormData(form);
+    const competence = String(donnees.get('competence') ?? '');
+    const cadre = String(donnees.get('cadre') ?? '');
+    let visibles = 0;
+    for (const li of items) {
+      const ok =
+        (!competence || li.dataset.competences!.split(' ').includes(competence)) && (!cadre || li.dataset.cadre === cadre);
+      li.hidden = !ok;
+      if (ok) visibles++;
+    }
+    compte.textContent = `${visibles} réalisation${visibles > 1 ? 's' : ''} affichée${visibles > 1 ? 's' : ''}`;
+    vide.hidden = visibles > 0;
+    const url = new URL(location.href);
+    competence ? url.searchParams.set('competence', competence) : url.searchParams.delete('competence');
+    cadre ? url.searchParams.set('cadre', cadre) : url.searchParams.delete('cadre');
+    history.replaceState(null, '', url);
+  }
+  form.addEventListener('change', appliquer);
+  appliquer();
+</script>
+
+<style>
+  .filtres {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-family: var(--titre);
+    font-size: 0.875rem;
+  }
+  .filtres[hidden] {
+    display: none;
+  }
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+  }
+  legend {
+    font-weight: 700;
+    float: left;
+    width: 7.5rem;
+    padding: 0;
+  }
+  label {
+    position: relative;
+    display: inline-block;
+    border: 1px solid var(--filet);
+    padding: 0.4rem 0.65rem;
+    cursor: pointer;
+  }
+  label:hover {
+    border-color: var(--noir);
+  }
+  input {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  label:has(input:checked) {
+    background: var(--noir);
+    border-color: var(--noir);
+    color: var(--fond);
+  }
+  label:has(input:focus-visible) {
+    outline: 2px solid var(--brique);
+    outline-offset: 2px;
+  }
+  .compte {
+    margin: 0;
+    color: var(--gris);
+  }
+  .liste {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--noir);
+  }
+  .liste li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      'meta meta'
+      'titre resume'
+      'titre etiquettes';
+    gap: 0.4rem 3rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--filet);
+  }
+  .liste li[hidden] {
+    display: none;
+  }
+  .meta {
+    grid-area: meta;
+    margin: 0;
+    font: 400 0.8125rem/1.3 var(--titre);
+    color: var(--gris);
+  }
+  .liste h2 {
+    grid-area: titre;
+    font-size: 1.375rem;
+    font-weight: 700;
+  }
+  .liste h2 a {
+    text-decoration: none;
+  }
+  .liste h2 a:hover {
+    text-decoration: underline;
+  }
+  .resume {
+    grid-area: resume;
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+  .liste :global(.etiquettes) {
+    grid-area: etiquettes;
+    margin-top: 0.3rem;
+  }
+  @media (max-width: 48rem) {
+    .liste li {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'meta' 'titre' 'resume' 'etiquettes';
+    }
+    legend {
+      float: none;
+      width: 100%;
+      margin-bottom: 0.2rem;
+    }
+  }
+</style>

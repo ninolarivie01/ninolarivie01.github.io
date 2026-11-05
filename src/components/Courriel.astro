@@ -1,0 +1,20 @@
+---
+// L'adresse n'est jamais écrite en clair dans le HTML : un court script la reconstitue.
+// Sans JavaScript, elle reste lisible par un humain sous la forme « nom [arobase] domaine ».
+import { PROFIL } from '../data/profil';
+const { utilisateur, domaine } = PROFIL.email;
+---
+
+<span class="courriel" data-u={utilisateur} data-d={domaine}>
+  {utilisateur} [arobase] {domaine}
+</span>
+
+<script>
+  for (const el of document.querySelectorAll<HTMLElement>('.courriel[data-u]')) {
+    const adresse = `${el.dataset.u}@${el.dataset.d}`;
+    const lien = document.createElement('a');
+    lien.href = `mailto:${adresse}`;
+    lien.textContent = adresse;
+    el.replaceChildren(lien);
+  }
+</script>

@@ -1,0 +1,13 @@
+# Certifications et formations complémentaires.
+# statut : obtenue | en-cours | a-completer
+# preuve : chemin d'un PDF déposé dans public/documents/ (facultatif)
+- id: secnumacademie
+  nom: SecNumacadémie
+  organisme: ANSSI
+  statut: a-completer
+  note: "[À COMPLÉTER : préciser si le MOOC est terminé, la date et déposer l'attestation]"
+- id: cisco
+  nom: "[À COMPLÉTER : intitulé exact du ou des cours Cisco Networking Academy]"
+  organisme: Cisco Networking Academy
+  statut: a-completer
+  note: "[À COMPLÉTER : date d'obtention et attestation]"
