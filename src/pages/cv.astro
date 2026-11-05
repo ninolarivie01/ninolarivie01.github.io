@@ -1,0 +1,174 @@
+---
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import Base from '../layouts/Base.astro';
+import ACompleter from '../components/ACompleter.astro';
+import Courriel from '../components/Courriel.astro';
+import { PROFIL } from '../data/profil';
+
+const PDF = '/documents/cv-nino-lariviere-gillet.pdf';
+const pdfPresent = existsSync(join(process.cwd(), 'public', PDF));
+---
+
+<Base
+  titre="CV"
+  description="CV de Nino Larivière-Gillet, apprenti technicien support et infrastructure en BTS SIO option SISR, en alternance au Département d'Ille-et-Vilaine."
+>
+  <header class="entete-page">
+    <h1>Curriculum vitæ</h1>
+    <p>{PROFIL.fonction}, {PROFIL.ville}.</p>
+  </header>
+
+  <p class="telechargement pas-imprime">
+    {
+      pdfPresent ? (
+        <a href={PDF} download class="lien-fort">
+          Télécharger le CV en PDF
+        </a>
+      ) : (
+        <ACompleter>déposer le CV en PDF dans public{PDF}</ACompleter>
+      )
+    }
+  </p>
+
+  <div class="cv">
+    <section aria-labelledby="cv-exp">
+      <h2 id="cv-exp">Expérience</h2>
+      <dl>
+        <dt>Sept. 2026 – juil. 2027</dt>
+        <dd>
+          <h3>Apprenti technicien, centre de service</h3>
+          <p class="org">Direction des services numériques, Département d'Ille&#8209;et&#8209;Vilaine, Rennes</p>
+          <ul>
+            <li>Masterisation de postes d'occasion sous Windows 11 par PXE</li>
+            <li>Suivi du cycle de vie des matériels dans Active Directory, MECM et EasyVista</li>
+            <li>Support utilisateurs et incidents sous EasyVista, échanges de ports au brassage</li>
+            <li>Suivi des interventions du prestataire</li>
+          </ul>
+        </dd>
+        <dt><ACompleter>dates du stage</ACompleter></dt>
+        <dd>
+          <h3>Stagiaire, support informatique</h3>
+          <p class="org">Pôle Saint-Hélier, Rennes</p>
+          <ul>
+            <li>Traitement des demandes d'assistance sous GLPI</li>
+            <li>Gestion du parc sous GLPI : entrées et sorties de postes</li>
+          </ul>
+        </dd>
+      </dl>
+    </section>
+
+    <section aria-labelledby="cv-form">
+      <h2 id="cv-form">Formation</h2>
+      <dl>
+        <dt>2025 – 2027</dt>
+        <dd>
+          <h3>BTS SIO, option SISR</h3>
+          <p class="org">AFTEC Rennes, en alternance</p>
+        </dd>
+        <dt>2021 – 2024</dt>
+        <dd>
+          <h3>Licence Économie-Gestion</h3>
+          <p class="org">Université de Rennes 1</p>
+        </dd>
+        <dt>2021</dt>
+        <dd>
+          <h3>Baccalauréat général, mention assez bien</h3>
+          <p class="org">Lycée Saint-Martin, Rennes</p>
+        </dd>
+      </dl>
+    </section>
+
+    <section aria-labelledby="cv-tech">
+      <h2 id="cv-tech">Environnements utilisés</h2>
+      <dl class="tech">
+        <dt>Systèmes</dt>
+        <dd>Windows 11, Windows Server, Debian 13</dd>
+        <dt>Services</dt>
+        <dd>Active Directory, GPO, DNS, DHCP, BIND9, isc-dhcp-server</dd>
+        <dt>Gestion de parc et ticketing</dt>
+        <dd>GLPI, EasyVista, MECM, déploiement PXE</dd>
+        <dt>Réseau et sécurité</dt>
+        <dd>FortiGate, pfSense, Suricata</dd>
+        <dt>Virtualisation</dt>
+        <dd>VMware Workstation, Proxmox VE</dd>
+        <dt>Web</dt>
+        <dd>WordPress, Astro, Git et GitHub</dd>
+      </dl>
+    </section>
+
+    <section aria-labelledby="cv-plus">
+      <h2 id="cv-plus">Langues et centres d'intérêt</h2>
+      <p><ACompleter>langues et niveau, centres d’intérêt réels</ACompleter></p>
+      <p>Certifications : voir la page <a href="/certifications/">Certifications et formations</a>.</p>
+    </section>
+
+    <section aria-labelledby="cv-contact">
+      <h2 id="cv-contact">Contact</h2>
+      <p><Courriel /></p>
+      <p><a href={PROFIL.linkedin} rel="me noopener">Profil LinkedIn</a></p>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .telechargement {
+    margin: 0 0 2rem;
+  }
+  .cv {
+    display: grid;
+    gap: 2.5rem;
+    max-width: 52rem;
+  }
+  h2 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--noir);
+    margin-bottom: 1rem;
+  }
+  dl {
+    display: grid;
+    grid-template-columns: 11rem minmax(0, 1fr);
+    gap: 1rem 2rem;
+    margin: 0;
+  }
+  dt {
+    font: 600 0.875rem/1.6 var(--titre);
+    font-variant-numeric: tabular-nums;
+  }
+  dd {
+    margin: 0;
+  }
+  h3 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+  }
+  .org {
+    margin: 0.15rem 0 0.4rem;
+    color: var(--gris);
+  }
+  dd ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.9375rem;
+  }
+  dd li::marker {
+    color: var(--brique);
+  }
+  .tech dd {
+    font-size: 0.9375rem;
+  }
+  section p {
+    margin: 0 0 0.5rem;
+  }
+  @media (max-width: 40rem) {
+    dl {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+    }
+    dd + dt {
+      margin-top: 1rem;
+    }
+  }
+</style>

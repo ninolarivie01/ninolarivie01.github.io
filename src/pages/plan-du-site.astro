@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { realisationsParGroupe } from '../lib/realisations';
+
+const groupes = await realisationsParGroupe();
+const contextes = (await getCollection('contextes')).sort((a, b) => a.data.ordre - b.data.ordre);
+const articles = await getCollection('veille', ({ data }) => !data.brouillon);
+---
+
+<Base titre="Plan du site" description="Toutes les pages du portfolio de Nino Larivière-Gillet.">
+  <header class="entete-page">
+    <h1>Plan du site</h1>
+  </header>
+
+  <ul class="plan">
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/parcours/">Parcours</a></li>
+    <li>
+      <a href="/contextes/">Contextes professionnels</a>
+      <ul>{contextes.map((c) => <li><a href={`/contextes/${c.id}/`}>{c.data.organisation}</a></li>)}</ul>
+    </li>
+    <li>
+      <a href="/realisations/">Réalisations</a>
+      {
+        groupes.map((g) => (
+          <ul>
+            <li>
+              {g.titre}
+              <ul>
+                {g.realisations.map((r) => (
+                  <li>
+                    <a href={`/realisations/${r.id}/`}>{r.data.titre}</a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          </ul>
+        ))
+      }
+    </li>
+    <li><a href="/competences/">Compétences du bloc 1</a></li>
+    <li><a href="/tableau-de-synthese/">Tableau de synthèse</a></li>
+    <li>
+      <a href="/veille/">Veille</a>
+      {articles.length > 0 && <ul>{articles.map((a) => <li><a href={`/veille/${a.id}/`}>{a.data.titre}</a></li>)}</ul>}
+    </li>
+    <li><a href="/certifications/">Certifications et formations</a></li>
+    <li><a href="/cv/">CV</a></li>
+    <li><a href="/contact/">Contact</a></li>
+    <li><a href="/mentions-legales/">Mentions légales</a></li>
+    <li><a href="/confidentialite/">Politique de confidentialité</a></li>
+    <li><a href="/accessibilite/">Déclaration d'accessibilité</a></li>
+  </ul>
+</Base>
+
+<style>
+  .plan,
+  .plan ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+  .plan {
+    padding-left: 0;
+    list-style: none;
+    font-family: var(--titre);
+  }
+  .plan > li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--filet);
+  }
+  .plan ul {
+    font-family: var(--texte);
+    font-size: 0.9375rem;
+    margin-top: 0.3rem;
+  }
+  .plan ul li::marker {
+    color: var(--brique);
+  }
+</style>

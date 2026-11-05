@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import Courriel from '../components/Courriel.astro';
+import ACompleter from '../components/ACompleter.astro';
+import { PROFIL } from '../data/profil';
+---
+
+<Base
+  titre="Mentions légales"
+  description="Mentions légales du portfolio de Nino Larivière-Gillet : éditeur, hébergeur, propriété intellectuelle."
+>
+  <header class="entete-page">
+    <h1>Mentions légales</h1>
+    <p>Informations prévues par l'article 1-1 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN).</p>
+  </header>
+
+  <div class="prose">
+    <h2>Éditeur du site</h2>
+    <p>
+      Ce site est édité à titre personnel et non professionnel par {PROFIL.nom}, particulier, étudiant en BTS SIO à
+      l'AFTEC Rennes. Il sert de portfolio pour l'épreuve E5 du BTS.
+    </p>
+    <p>Contact : <Courriel /></p>
+    <p>Directeur de la publication : {PROFIL.nom}.</p>
+
+    <h2>Hébergeur</h2>
+    <p>
+      GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis. Téléphone : +1 877 448 4820.
+      Site : <a href="https://github.com">github.com</a>. Le site est publié avec le service GitHub Pages.
+    </p>
+
+    <h2>Propriété intellectuelle</h2>
+    <p>
+      Les textes, schémas, documents téléchargeables et la mise en page de ce site sont la propriété de {PROFIL.nom},
+      sauf mention contraire. Leur reproduction, totale ou partielle, sans autorisation est interdite (article L. 122-4
+      du code de la propriété intellectuelle). Les citations courtes restent possibles avec mention de la source.
+    </p>
+    <p>
+      Les noms de logiciels et de produits cités (Windows, Active Directory, GLPI, EasyVista, FortiGate, Proxmox, etc.)
+      sont des marques de leurs propriétaires respectifs. Ils ne sont mentionnés que pour décrire l'environnement
+      technique de mes réalisations.
+    </p>
+    <p>
+      Les polices Schibsted Grotesk et Literata sont distribuées sous licence SIL Open Font License 1.1 et hébergées
+      sur ce site.
+    </p>
+
+    <h2>Organisations citées</h2>
+    <p>
+      Le Département d'Ille-et-Vilaine et le Pôle Saint-Hélier sont cités avec l'accord de mes tuteurs. Aucune
+      information confidentielle n'y est publiée : ni nom d'agent, ni adresse IP, ni nom de serveur de production. Les
+      captures d'écran sont anonymisées.
+    </p>
+
+    <h2>Données personnelles</h2>
+    <p>Ce site ne dépose aucun cookie et ne collecte aucune donnée. Voir la <a href="/confidentialite/">politique de confidentialité</a>.</p>
+
+    <h2>Mise à jour</h2>
+    <p><ACompleter>date de dernière mise à jour de cette page, à la mise en ligne</ACompleter></p>
+  </div>
+</Base>

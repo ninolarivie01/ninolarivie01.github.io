@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base titre="Page introuvable" description="Cette page n'existe pas ou a été déplacée.">
+  <header class="entete-page">
+    <h1>Cette page n'existe pas.</h1>
+    <p>L'adresse est peut-être mal saisie, ou la page a été déplacée.</p>
+  </header>
+  <ul class="pistes">
+    <li><a href="/">Revenir à l'accueil</a></li>
+    <li><a href="/realisations/">Voir toutes les réalisations</a></li>
+    <li><a href="/tableau-de-synthese/">Ouvrir le tableau de synthèse</a></li>
+    <li><a href="/plan-du-site/">Consulter le plan du site</a></li>
+  </ul>
+</Base>
+
+<style>
+  .pistes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: var(--titre);
+    display: grid;
+    gap: 0.75rem;
+  }
+</style>

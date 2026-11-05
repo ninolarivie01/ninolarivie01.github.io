@@ -5,7 +5,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const MOTIF = /\[À COMPLÉTER\s*:[^\]<]*\]/g;
+const MOTIF = /\[À COMPLÉTER(?:\s*:[^\]<]*)?\]/g;
 const DEJA = '<mark class="a-completer">';
 
 async function* fichiersHtml(dossier) {

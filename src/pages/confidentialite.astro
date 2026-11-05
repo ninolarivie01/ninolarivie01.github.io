@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import Courriel from '../components/Courriel.astro';
+import ACompleter from '../components/ACompleter.astro';
+import { PROFIL } from '../data/profil';
+---
+
+<Base
+  titre="Politique de confidentialité"
+  description="Ce site ne dépose aucun cookie, n'utilise aucun traceur et ne charge aucune ressource externe. Détail des seules données traitées."
+>
+  <header class="entete-page">
+    <h1>Politique de confidentialité</h1>
+    <p>En résumé : aucun cookie, aucun traceur, aucune mesure d'audience, aucune ressource chargée depuis un autre site.</p>
+  </header>
+
+  <div class="prose">
+    <h2>Ce que ce site ne fait pas</h2>
+    <ul>
+      <li>Il ne dépose aucun cookie et n'utilise pas le stockage local du navigateur.</li>
+      <li>Il n'utilise aucun outil de mesure d'audience ni de publicité.</li>
+      <li>
+        Il ne charge aucune ressource externe : les polices de caractères sont hébergées sur le site lui-même, sans appel à
+        Google Fonts ou à un autre service.
+      </li>
+      <li>Il ne comporte aucun formulaire.</li>
+    </ul>
+    <p>Aucun bandeau de consentement n'est donc nécessaire.</p>
+
+    <h2>Les journaux de l'hébergeur</h2>
+    <p>
+      Le site est hébergé par GitHub Pages. Selon sa déclaration de confidentialité, GitHub peut collecter des
+      informations techniques sur les visiteurs, dont des journaux d'adresses IP, pour assurer la sécurité et l'intégrité
+      du service. Je n'ai pas accès à ces journaux. Pour en savoir plus :
+      <a href="https://docs.github.com/fr/site-policy/privacy-policies/github-general-privacy-statement">déclaration de confidentialité de GitHub</a>.
+    </p>
+
+    <h2>Si vous m'écrivez</h2>
+    <p>
+      Un courriel envoyé à mon adresse est reçu sur une messagerie Gmail (Google). J'utilise votre adresse et votre
+      message uniquement pour vous répondre. Je ne les transmets à personne.
+      <ACompleter>durée de conservation des échanges, par exemple jusqu’à la fin de la session d’examen</ACompleter>
+    </p>
+
+    <h2>Vos droits</h2>
+    <p>
+      Le responsable de traitement est {PROFIL.nom}. Conformément au RGPD, vous pouvez demander l'accès à vos données,
+      leur rectification ou leur effacement en écrivant à <Courriel />. Vous pouvez aussi adresser une réclamation à la
+      <a href="https://www.cnil.fr/fr/plaintes">CNIL</a>.
+    </p>
+  </div>
+</Base>

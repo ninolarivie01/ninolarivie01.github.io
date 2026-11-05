@@ -1,0 +1,137 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Etiquettes from '../../components/Etiquettes.astro';
+import { realisationsPubliees } from '../../lib/realisations';
+
+export async function getStaticPaths() {
+  const contextes = await getCollection('contextes');
+  return contextes.map((c) => ({ params: { id: c.id }, props: { contexte: c } }));
+}
+
+interface Props {
+  contexte: CollectionEntry<'contextes'>;
+}
+const { contexte: c } = Astro.props;
+const { Content } = await render(c);
+const realisations = (await realisationsPubliees()).filter((r) => r.data.organisation?.id === c.id);
+---
+
+<Base titre={c.data.organisation} description={c.data.resume}>
+  <nav class="fil" aria-label="Fil d'Ariane">
+    <a href="/contextes/">Contextes professionnels</a>
+  </nav>
+
+  <header class="entete-page">
+    <h1>{c.data.organisation}</h1>
+    <p>{c.data.resume}</p>
+  </header>
+
+  <div class="mise-en-page">
+    <aside aria-label="En bref">
+      <dl>
+        <div>
+          <dt>Cadre</dt>
+          <dd>{c.data.cadre === 'alternance' ? 'Alternance' : 'Stage'}, {c.data.annee === 1 ? '1re' : '2e'} année</dd>
+        </div>
+        <div><dt>Période</dt><dd>{c.data.periode}</dd></div>
+        <div><dt>Service</dt><dd>{c.data.service}</dd></div>
+        <div>
+          <dt>Environnement technique</dt>
+          <dd>
+            <ul>{c.data.environnement.map((e) => <li>{e}</li>)}</ul>
+          </dd>
+        </div>
+      </dl>
+    </aside>
+
+    <div>
+      <article class="prose">
+        <Content />
+      </article>
+
+      <section class="realisations" aria-labelledby="titre-real">
+        <h2 id="titre-real">Mes réalisations dans ce contexte</h2>
+        <ul>
+          {
+            realisations.map((r) => (
+              <li>
+                <a href={`/realisations/${r.id}/`}>{r.data.titre}</a>
+                <Etiquettes ids={r.data.competences} liens={false} />
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .fil {
+    padding-top: 1.5rem;
+    font: 400 0.875rem/1 var(--titre);
+  }
+  .mise-en-page {
+    display: grid;
+    grid-template-columns: minmax(14rem, 19rem) minmax(0, 1fr);
+    gap: 2rem clamp(2rem, 6vw, 6rem);
+    align-items: start;
+  }
+  aside {
+    font-family: var(--titre);
+    font-size: 0.875rem;
+  }
+  dl {
+    margin: 0;
+  }
+  dl > div {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--filet);
+  }
+  dl > div:first-child {
+    padding-top: 0;
+  }
+  dt {
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  dd {
+    margin: 0;
+  }
+  dd ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .realisations {
+    margin-top: 3rem;
+    max-width: var(--mesure);
+  }
+  .realisations h2 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--noir);
+    margin-bottom: 0.5rem;
+  }
+  .realisations ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .realisations li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--filet);
+    display: grid;
+    gap: 0.4rem;
+  }
+  .realisations li > a {
+    font-weight: 600;
+  }
+  @media (max-width: 52rem) {
+    .mise-en-page {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

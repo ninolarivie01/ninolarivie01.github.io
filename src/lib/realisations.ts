@@ -15,8 +15,10 @@ export const CADRES: Record<Realisation['data']['cadre'], string> = {
   alternance: 'Alternance',
 };
 
+const ORDRE_CADRE = { formation: 0, stage: 1, alternance: 2 };
 const tri = (a: Realisation, b: Realisation) =>
   a.data.annee - b.data.annee ||
+  ORDRE_CADRE[a.data.cadre] - ORDRE_CADRE[b.data.cadre] ||
   (a.data.debut?.getTime() ?? 0) - (b.data.debut?.getTime() ?? 0) ||
   a.data.ordre - b.data.ordre;
 

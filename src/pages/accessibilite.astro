@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import Courriel from '../components/Courriel.astro';
+import ACompleter from '../components/ACompleter.astro';
+---
+
+<Base
+  titre="Déclaration d'accessibilité"
+  description="Déclaration d'accessibilité volontaire du portfolio : état de conformité au RGAA, tests réalisés, contenus non accessibles et contact."
+>
+  <header class="entete-page">
+    <h1>Déclaration d'accessibilité</h1>
+    <p>
+      Un site personnel n'est pas soumis à l'obligation d'accessibilité. Je publie cette déclaration volontairement, sur le
+      modèle de celle exigée des services publics, parce que l'accessibilité fait partie de mon métier.
+    </p>
+  </header>
+
+  <div class="prose">
+    <h2>État de conformité</h2>
+    <p>
+      Ce site est <strong>non conforme</strong> au référentiel général d'amélioration de l'accessibilité (RGAA 4.1.2) :
+      c'est la mention obligatoire tant qu'aucun audit complet n'a été réalisé. Il a été conçu pour respecter le niveau AA
+      des règles WCAG 2.2.
+    </p>
+
+    <h2>Tests réalisés</h2>
+    <ul>
+      <li>Contrôle des contrastes de couleurs : 15,2 : 1 pour le texte principal, 6,6 : 1 pour la couleur d'accent.</li>
+      <li>Tests automatiques avec axe-core sur toutes les pages. <ACompleter>date et résultat</ACompleter></li>
+      <li>Navigation au clavier, focus visible et lien d'évitement. <ACompleter>date et résultat</ACompleter></li>
+      <li>Affichage de 360 pixels de large à grand écran, zoom du texte à 200 %. <ACompleter>date et résultat</ACompleter></li>
+      <li><ACompleter>test avec un lecteur d’écran, par exemple NVDA</ACompleter></li>
+    </ul>
+
+    <h2>Contenus non accessibles</h2>
+    <p>
+      Les documents PDF téléchargeables sont des procédures rédigées pendant ma formation. Ils n'ont pas été vérifiés au
+      regard de l'accessibilité : leurs captures d'écran, en particulier, n'ont pas toutes de description textuelle.
+    </p>
+
+    <h2>Technologies utilisées</h2>
+    <p>HTML, CSS et un peu de JavaScript, uniquement pour le filtre des réalisations, l'affichage de l'adresse électronique et le bouton d'impression. Le site reste utilisable sans JavaScript.</p>
+
+    <h2>Signaler un problème</h2>
+    <p>Si un contenu vous est inaccessible, écrivez-moi : <Courriel />. Je vous répondrai et corrigerai le problème.</p>
+
+    <h2>Date</h2>
+    <p>Déclaration établie le <ACompleter>date de mise en ligne</ACompleter>.</p>
+  </div>
+</Base>

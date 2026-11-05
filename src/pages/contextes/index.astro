@@ -1,0 +1,66 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const contextes = (await getCollection('contextes')).sort((a, b) => a.data.ordre - b.data.ordre);
+---
+
+<Base
+  titre="Contextes professionnels"
+  description="Les organisations où j'ai travaillé pendant mon BTS SIO : le Département d'Ille-et-Vilaine en alternance et le Pôle Saint-Hélier en stage."
+>
+  <header class="entete-page">
+    <h1>Contextes professionnels</h1>
+    <p>Les deux organisations où j'ai mené mes réalisations professionnelles, du plus récent au plus ancien.</p>
+  </header>
+
+  <ol class="contextes">
+    {
+      contextes.map((c) => (
+        <li>
+          <p class="meta">
+            {c.data.cadre === 'alternance' ? 'Alternance' : 'Stage'}, {c.data.annee === 1 ? '1re' : '2e'} année,{' '}
+            {c.data.periode}
+          </p>
+          <h2>
+            <a href={`/contextes/${c.id}/`}>{c.data.organisation}</a>
+          </h2>
+          <p>{c.data.resume}</p>
+        </li>
+      ))
+    }
+  </ol>
+</Base>
+
+<style>
+  .contextes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .contextes li {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--filet);
+    max-width: 48rem;
+  }
+  .meta {
+    margin: 0 0 0.3rem;
+    font: 400 0.8125rem/1.4 var(--titre);
+    color: var(--gris);
+  }
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  h2 a {
+    text-decoration: none;
+  }
+  h2 a:hover {
+    text-decoration: underline;
+  }
+  .contextes p:last-child {
+    margin: 0;
+  }
+</style>

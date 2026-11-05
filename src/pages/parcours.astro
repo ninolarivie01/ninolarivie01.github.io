@@ -1,0 +1,169 @@
+---
+import Base from '../layouts/Base.astro';
+import ACompleter from '../components/ACompleter.astro';
+
+const ETAPES = [
+  {
+    annees: '2021',
+    titre: 'Baccalauréat général, mention assez bien',
+    lieu: 'Lycée Saint-Martin, Rennes',
+  },
+  {
+    annees: '2021 – 2024',
+    titre: 'Licence Économie-Gestion',
+    lieu: 'Université de Rennes 1',
+    todo: 'préciser si la licence est obtenue',
+  },
+  {
+    annees: '2024 – 2025',
+    titre: null,
+    lieu: null,
+    todo: 'ce que j’ai fait entre la licence et le BTS',
+  },
+  {
+    annees: '2025 – 2027',
+    titre: 'BTS Services informatiques aux organisations, option SISR',
+    lieu: 'AFTEC Rennes',
+    sous: [
+      '1re année : stage au Pôle Saint-Hélier, support et parc sous GLPI',
+      "2e année : alternance au centre de service de la DSN du Département d'Ille-et-Vilaine, de septembre 2026 à juillet 2027",
+    ],
+  },
+];
+---
+
+<Base
+  titre="Parcours"
+  description="Mon parcours, de la licence d'économie-gestion au BTS SIO option SISR en alternance, et mon projet professionnel en réseaux et cybersécurité."
+>
+  <header class="entete-page">
+    <h1>Parcours</h1>
+    <p>Trois ans d'économie-gestion, puis une reconversion vers l'informatique et les réseaux.</p>
+  </header>
+
+  <section class="frise" aria-labelledby="titre-frise">
+    <h2 id="titre-frise">Formation</h2>
+    <ol>
+      {
+        ETAPES.map((e) => (
+          <li>
+            <p class="annees">{e.annees}</p>
+            <div>
+              {e.titre && <h3>{e.titre}</h3>}
+              {e.lieu && <p class="lieu">{e.lieu}</p>}
+              {e.todo && (
+                <p>
+                  <ACompleter>{e.todo}</ACompleter>
+                </p>
+              )}
+              {e.sous && (
+                <ul>
+                  {e.sous.map((s) => (
+                    <li>{s}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <div class="recit">
+    <section class="prose" aria-labelledby="titre-reconversion">
+      <h2 id="titre-reconversion">Pourquoi je me suis reconverti</h2>
+      <p>
+        <ACompleter>le déclic qui m’a fait passer de l’économie à l’informatique, en quelques phrases concrètes</ACompleter>
+      </p>
+      <p>
+        Ma licence me sert au quotidien dans le support : comprendre comment fonctionne une organisation, ce que coûte un
+        matériel ou une interruption de service, et dans quel cadre réglementaire on travaille.
+        <ACompleter>un exemple réel où cette double compétence m’a servi</ACompleter>
+      </p>
+    </section>
+
+    <section class="prose" aria-labelledby="titre-projet">
+      <h2 id="titre-projet">Mon projet professionnel</h2>
+      <p>
+        À terme, je veux travailler dans les réseaux et la cybersécurité. Après le BTS, je compte poursuivre mes études
+        jusqu'à bac+5.
+      </p>
+      <p>
+        <ACompleter>formation visée après le BTS, en alternance ou non, intérêt éventuel pour la fonction publique et ses concours</ACompleter>
+      </p>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .frise h2,
+  .recit h2 {
+    font-size: 1.375rem;
+    font-weight: 700;
+  }
+  .frise h2 {
+    margin-bottom: 1rem;
+  }
+  .frise ol {
+    list-style: none;
+    margin: 0 0 3rem;
+    padding: 0;
+    border-left: 3px solid var(--noir);
+  }
+  .frise > ol > li {
+    display: grid;
+    grid-template-columns: 9rem minmax(0, 1fr);
+    gap: 0.5rem 2rem;
+    padding: 1rem 0 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--filet);
+    position: relative;
+  }
+  .frise > ol > li::before {
+    content: '';
+    position: absolute;
+    left: -0.5rem;
+    top: 1.35rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: var(--brique);
+  }
+  .annees {
+    margin: 0;
+    font: 700 1rem/1.5 var(--titre);
+    font-variant-numeric: tabular-nums;
+  }
+  .frise h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+  .lieu {
+    margin: 0.2rem 0 0;
+    color: var(--gris);
+  }
+  .frise ul {
+    margin: 0.6rem 0 0;
+    padding-left: 1.1rem;
+    font-size: 0.9375rem;
+  }
+  .frise ul li::marker {
+    color: var(--brique);
+  }
+  .frise p {
+    margin: 0;
+  }
+  .recit {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 4rem;
+  }
+  .recit h2 {
+    margin-top: 0;
+  }
+  @media (max-width: 48rem) {
+    .frise > ol > li,
+    .recit {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

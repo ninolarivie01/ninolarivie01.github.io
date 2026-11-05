@@ -1,0 +1,124 @@
+---
+import Base from '../layouts/Base.astro';
+import { COMPETENCES } from '../data/competences';
+import { realisationsPubliees, CADRES } from '../lib/realisations';
+
+const realisations = await realisationsPubliees();
+const liees = (id: string) => realisations.filter((r) => (r.data.competences as string[]).includes(id));
+---
+
+<Base
+  titre="Compétences"
+  description="Les six compétences du bloc 1 du BTS SIO, leurs attendus détaillés et les réalisations qui les mobilisent dans mon portfolio."
+>
+  <header class="entete-page">
+    <h1>Compétences du bloc 1</h1>
+    <p>
+      Les six compétences du bloc « Support et mise à disposition de services informatiques », avec leurs attendus et
+      les réalisations où je les ai mobilisées.
+    </p>
+  </header>
+
+  <ol class="competences">
+    {
+      COMPETENCES.map((c) => {
+        const liste = liees(c.id);
+        return (
+          <li id={c.id}>
+            <h2>{c.titre}</h2>
+            <div class="colonnes">
+              <div>
+                <h3>Attendus</h3>
+                <ul class="attendus">
+                  {c.details.map((d) => (
+                    <li>{d}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3>
+                  {liste.length} réalisation{liste.length > 1 ? 's' : ''}
+                </h3>
+                <ul class="liees">
+                  {liste.map((r) => (
+                    <li>
+                      <a href={`/realisations/${r.id}/`}>{r.data.titre}</a>
+                      <span>
+                        {CADRES[r.data.cadre]}, {r.data.annee === 1 ? '1re' : '2e'} année
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </li>
+        );
+      })
+    }
+  </ol>
+</Base>
+
+<style>
+  .competences {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .competences > li {
+    padding: 1.5rem 0 2.5rem;
+    border-top: 1px solid var(--noir);
+    scroll-margin-top: 1rem;
+  }
+  .competences > li:target h2 {
+    color: var(--brique);
+  }
+  h2 {
+    font-size: clamp(1.375rem, 2.6vw, 1.75rem);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    max-width: 30ch;
+  }
+  .colonnes {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.5rem 4rem;
+  }
+  h3 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .attendus {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.9375rem;
+  }
+  .attendus li + li {
+    margin-top: 0.3rem;
+  }
+  .attendus li::marker {
+    color: var(--brique);
+  }
+  .liees {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .liees li {
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--filet);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .liees span {
+    font: 400 0.8125rem/1.5 var(--titre);
+    color: var(--gris);
+  }
+  @media (max-width: 48rem) {
+    .colonnes {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

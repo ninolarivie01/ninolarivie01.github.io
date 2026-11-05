@@ -1,0 +1,95 @@
+---
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import Base from '../layouts/Base.astro';
+import Matrice from '../components/Matrice.astro';
+import ACompleter from '../components/ACompleter.astro';
+import { PROFIL, SITE } from '../data/profil';
+
+// Déposer le modèle officiel rempli à cet emplacement : il sera proposé au téléchargement.
+const XLSX = '/documents/tableau-de-synthese-e5.xlsx';
+const xlsxPresent = existsSync(join(process.cwd(), 'public', XLSX));
+---
+
+<Base
+  titre="Tableau de synthèse"
+  description="Tableau de synthèse de l'épreuve E5 du BTS SIO : chaque réalisation et les compétences du bloc 1 qu'elle mobilise, en formation, en stage et en alternance."
+>
+  <header class="entete-page">
+    <h1>Tableau de synthèse</h1>
+    <p>
+      {PROFIL.nom}, épreuve E5 « Support et mise à disposition de services informatiques », BTS SIO option SISR,
+      session {SITE.session}. Ce tableau est généré à partir des fiches de réalisation : il est toujours à jour.
+    </p>
+  </header>
+
+  <ul class="actions pas-imprime">
+    <li>
+      {
+        xlsxPresent ? (
+          <a href={XLSX} download class="lien-fort">
+            Télécharger le tableau au format officiel (.xlsx)
+          </a>
+        ) : (
+          <ACompleter>déposer le modèle officiel rempli dans public{XLSX}</ACompleter>
+        )
+      }
+    </li>
+    <li><button type="button" class="imprimer" hidden>Imprimer ou enregistrer en PDF</button></li>
+  </ul>
+
+  <section aria-labelledby="titre-tableau">
+    <h2 id="titre-tableau" class="sr">Réalisations et compétences mobilisées</h2>
+    <Matrice idTitre="titre-tableau" detaille />
+  </section>
+
+  <p class="legende">
+    Un carré indique que la réalisation mobilise la compétence. Les intitulés détaillés des six compétences sont sur la
+    page <a href="/competences/">Compétences</a>.
+  </p>
+</Base>
+
+<script>
+  // Bouton d'impression : affiché seulement si JavaScript fonctionne (sinon, Ctrl+P reste disponible).
+  const bouton = document.querySelector<HTMLButtonElement>('.imprimer')!;
+  bouton.hidden = false;
+  bouton.addEventListener('click', () => window.print());
+</script>
+
+<style>
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    align-items: center;
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    font-family: var(--titre);
+  }
+  .imprimer {
+    font: 600 0.9375rem/1 var(--titre);
+    background: var(--noir);
+    color: var(--fond);
+    border: 0;
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+  }
+  .imprimer:hover {
+    background: var(--brique);
+  }
+  .legende {
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--gris);
+    max-width: var(--mesure);
+  }
+  @media print {
+    @page {
+      size: A4 landscape;
+    }
+    .entete-page {
+      padding-top: 0;
+    }
+  }
+</style>

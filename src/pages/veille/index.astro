@@ -1,0 +1,137 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ACompleter from '../../components/ACompleter.astro';
+import { dateLongue } from '../../lib/realisations';
+
+const articles = (await getCollection('veille', ({ data }) => !data.brouillon)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+
+<Base
+  titre="Veille"
+  description="Ma veille informationnelle sur la directive NIS 2 et les collectivités territoriales : sujet, méthode, sources et synthèses datées."
+>
+  <header class="entete-page">
+    <h1>Veille : NIS 2 et les collectivités territoriales</h1>
+    <p>
+      La directive européenne NIS 2 élargit les obligations de cybersécurité à de nombreuses collectivités, dont les
+      départements. Je suis sa transposition en droit français et ce qu'elle change pour un service informatique comme
+      celui où je travaille.
+    </p>
+  </header>
+
+  <div class="colonnes">
+    <section class="prose" aria-labelledby="titre-pourquoi">
+      <h2 id="titre-pourquoi">Pourquoi ce sujet</h2>
+      <p>
+        Il touche directement mon contexte d'alternance : une collectivité territoriale et sa direction des services
+        numériques. C'est aussi un sujet en mouvement, ce qui permet de publier des synthèses régulières.
+        <ACompleter>ce qui m’intéresse personnellement dans ce sujet</ACompleter>
+      </p>
+      <h2 id="titre-question">Ma question de veille</h2>
+      <p>
+        <ACompleter>la question précise que je suis, par exemple : quelles obligations NIS 2 imposera aux départements, et à quel calendrier ?</ACompleter>
+      </p>
+    </section>
+
+    <section class="prose" aria-labelledby="titre-methode">
+      <h2 id="titre-methode">Ma méthode</h2>
+      <ul>
+        <li>Outil : <ACompleter>lecteur de flux RSS utilisé, par exemple Inoreader ou Feedly</ACompleter></li>
+        <li>Alertes : <ACompleter>alertes mises en place et leurs mots-clés</ACompleter></li>
+        <li>Fréquence : <ACompleter>temps consacré par semaine et rythme de publication</ACompleter></li>
+        <li>
+          Sources suivies : <ACompleter>liste réelle, par exemple CERT-FR, ANSSI, cybermalveillance.gouv.fr, Banque des Territoires, Maire-info</ACompleter>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="articles" aria-labelledby="titre-articles">
+    <h2 id="titre-articles">Synthèses</h2>
+    {
+      articles.length === 0 ? (
+        <p class="vide">
+          <ACompleter>première synthèse à publier (copier src/content/veille/_modele.md)</ACompleter>
+        </p>
+      ) : (
+        <ol>
+          {articles.map((a) => (
+            <li>
+              <p class="date">
+                <time datetime={a.data.date.toISOString().slice(0, 10)}>{dateLongue.format(a.data.date)}</time>
+              </p>
+              <h3>
+                <a href={`/veille/${a.id}/`}>{a.data.titre}</a>
+              </h3>
+              <p>{a.data.resume}</p>
+            </li>
+          ))}
+        </ol>
+      )
+    }
+  </section>
+</Base>
+
+<style>
+  .colonnes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 4rem;
+  }
+  .colonnes :global(h2:first-child) {
+    margin-top: 0;
+  }
+  .articles {
+    margin-top: 3rem;
+  }
+  .articles > h2 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    padding-top: 0.75rem;
+    border-top: 3px solid var(--noir);
+  }
+  .articles ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .articles li {
+    display: grid;
+    grid-template-columns: 11rem minmax(0, 1fr);
+    grid-template-areas: 'date titre' 'date resume';
+    gap: 0.3rem 2rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--filet);
+  }
+  .date {
+    grid-area: date;
+    margin: 0;
+    font: 400 0.875rem/1.5 var(--titre);
+    color: var(--gris);
+  }
+  .articles h3 {
+    grid-area: titre;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .articles li > p:last-child {
+    grid-area: resume;
+    margin: 0;
+    max-width: var(--mesure);
+  }
+  .vide {
+    margin-top: 1rem;
+  }
+  @media (max-width: 48rem) {
+    .colonnes {
+      grid-template-columns: 1fr;
+    }
+    .articles li {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'date' 'titre' 'resume';
+    }
+  }
+</style>

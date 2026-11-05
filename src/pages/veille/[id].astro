@@ -1,0 +1,60 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { dateLongue } from '../../lib/realisations';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('veille', ({ data }) => !data.brouillon);
+  return articles.map((a) => ({ params: { id: a.id }, props: { article: a } }));
+}
+
+interface Props {
+  article: CollectionEntry<'veille'>;
+}
+const { article: a } = Astro.props;
+const { Content } = await render(a);
+---
+
+<Base titre={a.data.titre} description={a.data.resume} type="article">
+  <nav class="fil" aria-label="Fil d'Ariane">
+    <a href="/veille/">Veille</a>
+  </nav>
+
+  <header class="entete-page">
+    <p class="date">
+      Synthèse du <time datetime={a.data.date.toISOString().slice(0, 10)}>{dateLongue.format(a.data.date)}</time>
+    </p>
+    <h1>{a.data.titre}</h1>
+    <p>{a.data.resume}</p>
+  </header>
+
+  <article class="prose">
+    <Content />
+
+    <h2>Sources</h2>
+    <ul>
+      {
+        a.data.sources.map((s) => (
+          <li>
+            <a href={s.url} rel="noopener">
+              {s.titre}
+            </a>
+            , {s.editeur}
+            {s.date && <>, {dateLongue.format(s.date)}</>}
+          </li>
+        ))
+      }
+    </ul>
+  </article>
+</Base>
+
+<style>
+  .fil {
+    padding-top: 1.5rem;
+    font: 400 0.875rem/1 var(--titre);
+  }
+  .entete-page .date {
+    margin: 0 0 0.75rem;
+    font: 400 0.875rem/1 var(--titre);
+  }
+</style>

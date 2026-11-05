@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+import Courriel from '../components/Courriel.astro';
+import { PROFIL } from '../data/profil';
+---
+
+<Base titre="Contact" description="Contacter Nino Larivière-Gillet par courriel ou sur LinkedIn.">
+  <header class="entete-page">
+    <h1>Contact</h1>
+    <p>Pour une question sur mon parcours ou mes réalisations, le plus simple est de m'écrire.</p>
+  </header>
+
+  <dl class="contact">
+    <dt>Courriel</dt>
+    <dd><Courriel /></dd>
+    <dt>LinkedIn</dt>
+    <dd><a href={PROFIL.linkedin} rel="me noopener">{PROFIL.nom}</a></dd>
+    <dt>Ville</dt>
+    <dd>{PROFIL.ville}</dd>
+  </dl>
+
+  <p class="note">
+    Ce site n'a pas de formulaire de contact : aucune donnée n'y est collectée. Voir la
+    <a href="/confidentialite/">politique de confidentialité</a>.
+  </p>
+</Base>
+
+<style>
+  .contact {
+    display: grid;
+    grid-template-columns: 9rem minmax(0, 1fr);
+    margin: 0;
+    max-width: 44rem;
+    border-top: 1px solid var(--noir);
+  }
+  dt,
+  dd {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--filet);
+    margin: 0;
+  }
+  dt {
+    font: 700 0.9375rem/1.6 var(--titre);
+  }
+  dd {
+    font-size: clamp(1.125rem, 2.4vw, 1.5rem);
+    font-family: var(--titre);
+    overflow-wrap: anywhere;
+  }
+  .note {
+    margin-top: 2rem;
+    max-width: var(--mesure);
+    color: var(--gris);
+    font-size: 0.9375rem;
+  }
+</style>
