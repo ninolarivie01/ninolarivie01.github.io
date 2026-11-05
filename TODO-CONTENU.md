@@ -2,7 +2,7 @@
 
 Fichier généré par `npm run todo` le 5 novembre 2026 : ne pas modifier à la main.
 
-**113 information(s) manquante(s)** dans 17 fichier(s). Objectif avant l'oral : zéro.
+**104 information(s) manquante(s)** dans 18 fichier(s). Objectif avant l'oral : zéro.
 
 ## public/documents
 
@@ -50,14 +50,12 @@ Fichier généré par `npm run todo` le 5 novembre 2026 : ne pas modifier à la 
 
 ## src/content/realisations/dhcp-dns-debian-13.md
 
-- [ ] ligne 20 : fichier manquant : public/documents/doc-debian13-dhcp-dns.pdf
 - [ ] ligne 27 : dates exactes JJ/MM/AA – JJ/MM/AA ; le document est daté d'avril 2026
 - [ ] ligne 63 : par exemple ce que change le fait de tout configurer en fichiers texte par rapport à Windows Server
 - [ ] ligne 67 : ma conclusion cite les zones inversées, la mise à jour dynamique DNS-DHCP, un DNS secondaire et DNSSEC
 
 ## src/content/realisations/dhcp-dns-windows-server-2025.md
 
-- [ ] ligne 20 : fichier manquant : public/documents/doc-ws2025-dhcp-dns.pdf
 - [ ] ligne 27 : dates exactes JJ/MM/AA – JJ/MM/AA ; le document est daté d'avril 2026
 - [ ] ligne 46 : difficulté rencontrée et solution
 - [ ] ligne 57 : rédiger la section « Ce que j'ai appris »
@@ -65,8 +63,6 @@ Fichier généré par `npm run todo` le 5 novembre 2026 : ne pas modifier à la 
 
 ## src/content/realisations/domaine-windows-server.md
 
-- [ ] ligne 23 : fichier manquant : public/documents/doc-windows-server-ad.pdf
-- [ ] ligne 26 : fichier manquant : public/documents/doc-windows-11.pdf
 - [ ] ligne 33 : dates du TP, JJ/MM/AA – JJ/MM/AA
 - [ ] ligne 57 : autre difficulté rencontrée et comment je l'ai résolue
 - [ ] ligne 70 : ce que ce TP m'a appris, en une ou deux phrases
@@ -85,7 +81,6 @@ Fichier généré par `npm run todo` le 5 novembre 2026 : ne pas modifier à la 
 
 ## src/content/realisations/mise-en-ligne-wordpress.md
 
-- [ ] ligne 20 : fichier manquant : public/documents/procedure-wordpress.pdf
 - [ ] ligne 27 : dates JJ/MM/AA – JJ/MM/AA, et ce que présentait le site
 - [ ] ligne 45 : rédiger la section « Difficultés et solutions »
 - [ ] ligne 49 : vérifications faites, par exemple pages, médias, connexion à l'administration
@@ -94,18 +89,11 @@ Fichier généré par `npm run todo` le 5 novembre 2026 : ne pas modifier à la 
 
 ## src/content/realisations/next-flow-net.md
 
-- [ ] ligne 28 : cahier des charges, taille et sites de l'entreprise fictive, dates du projet JJ/MM/AA – JJ/MM/AA
-- [ ] ligne 32 : objectifs fixés par le cahier des charges
-- [ ] ligne 36 : analyse du besoin et répartition des tâches
-- [ ] ligne 37 : planification, outil utilisé et jalons
-- [ ] ligne 38 : mise en place du pare-feu FortiGate
-- [ ] ligne 39 : détail des étapes
-- [ ] ligne 40 : tests et recette
-- [ ] ligne 44 : rédiger la section « Difficultés et solutions »
-- [ ] ligne 48 : tests réalisés, indicateurs de suivi et écarts constatés par rapport au planning
-- [ ] ligne 52 : ce que j'ai fait personnellement, ce qu'ont fait les autres membres (sans les nommer), comment nous nous sommes coordonnés
-- [ ] ligne 58 : rédiger la section « Ce que j'ai appris »
-- [ ] ligne 62 : rédiger la section « Ce que je ferais autrement »
+- [ ] ligne 32 : dates du projet JJ/MM/AA – JJ/MM/AA
+- [ ] ligne 72 : tests déjà passés et leur résultat
+- [ ] ligne 74 : planning du projet, indicateurs de suivi et écarts constatés
+- [ ] ligne 78 : confirmer si j'ai aussi réalisé sa configuration, préciser ce qu'ont fait les deux autres membres (switch, serveurs, Proxmox…) sans les nommer, et comment nous nous sommes coordonnés
+- [ ] ligne 84 : rédiger la section « Ce que j'ai appris »
 
 ## src/content/realisations/portfolio-professionnel.md
 
@@ -126,6 +114,12 @@ Fichier généré par `npm run todo` le 5 novembre 2026 : ne pas modifier à la 
 - [ ] ligne 42 : constats de l'analyse
 - [ ] ligne 48 : rédiger la section « Ce que j'ai appris »
 - [ ] ligne 52 : rédiger la section « Ce que je ferais autrement »
+
+## src/content/realisations/si-albatros.md
+
+- [ ] ligne 34 : dates de début et de fin du TD, et préciser si le travail était individuel ou en équipe
+- [ ] ligne 76 : durée de reprise mesurée
+- [ ] ligne 84 : ce que je retiens, par exemple le diagnostic couche par couche ou le croisement des alertes et des journaux
 
 ## src/content/realisations/suivi-prestataire.md
 
