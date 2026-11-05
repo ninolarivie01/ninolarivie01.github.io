@@ -30,7 +30,7 @@ if (d.modalite === 'equipe' && !headings.some((h) => h.depth === 2 && h.text.tri
 }
 
 const organisation = d.organisation ? await getEntry(d.organisation) : undefined;
-const p = periode(d.debut, d.fin);
+const p = periode(d);
 const productions = productionsDe(r);
 ---
 

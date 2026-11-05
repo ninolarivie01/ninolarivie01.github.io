@@ -48,7 +48,7 @@ const nbColonnes = COMPETENCES.length + (detaille ? 2 : 1);
               </th>
               {detaille && (
                 <td class="periode">
-                  {periode(r.data.debut, r.data.fin) ?? <mark class="a-completer">[À COMPLÉTER : dates]</mark>}
+                  {periode(r.data) ?? <mark class="a-completer">[À COMPLÉTER : dates]</mark>}
                 </td>
               )}
               {COMPETENCES.map((c) =>

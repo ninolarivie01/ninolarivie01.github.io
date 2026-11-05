@@ -1,8 +1,9 @@
 ---
 titre: "Mise en ligne d'un site WordPress"
 resume: "Passer un site WordPress développé en local sur un hébergement en ligne : transfert des fichiers, migration de la base de données et configuration."
-debut:
+debut: 2025-12-01
 fin:
+periode: décembre 2025
 cadre: formation
 annee: 1
 modalite: individuel
@@ -24,7 +25,7 @@ ordre: 4
 
 ## Contexte et besoin
 
-Travaux pratiques de 1re année à l'AFTEC. Un site WordPress fonctionnait en local sous MAMP ; il fallait le rendre accessible publiquement. [À COMPLÉTER : dates JJ/MM/AA – JJ/MM/AA, et ce que présentait le site]
+Travaux pratiques de 1re année à l'AFTEC. Un site WordPress fonctionnait en local sous MAMP ; il fallait le rendre accessible publiquement. Le site lui-même était une maquette : l'objet du TP était sa mise en ligne, pas son contenu.
 
 ## Objectifs
 
@@ -42,18 +43,14 @@ Travaux pratiques de 1re année à l'AFTEC. Un site WordPress fonctionnait en lo
 
 ## Difficultés et solutions
 
-[À COMPLÉTER]
+Ce TP relève plutôt de l'option SLAM, tournée vers le développement : un site, sa base de données et sa configuration PHP, ce n'est pas mon terrain habituel. Je m'en suis sorti en suivant chaque étape pas à pas et en la documentant, ce qui a donné la procédure jointe.
 
 ## Résultats et validation
 
-Le site s'affiche à son adresse publique. [À COMPLÉTER : vérifications faites, par exemple pages, médias, connexion à l'administration]
+Une fois en ligne, j'ai vérifié que le site s'affichait à son adresse publique et qu'il fonctionnait. Il n'est plus accessible aujourd'hui : l'hébergement gratuit a expiré depuis.
 
 ## Bilan
 
 ### Ce que j'ai appris
 
-[À COMPLÉTER]
-
-### Ce que je ferais autrement
-
-[À COMPLÉTER : par exemple sur la sécurité d'un hébergement gratuit, le HTTPS ou les mentions légales du site]
+Un aperçu concret du travail de l'option SLAM, et de ce qu'un administrateur doit savoir pour mettre en ligne et maintenir un site : fichiers, base de données et paramètres de connexion entre les deux.

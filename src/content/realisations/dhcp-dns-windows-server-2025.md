@@ -1,8 +1,9 @@
 ---
 titre: "Services DHCP et DNS sous Windows Server 2025"
 resume: "Installer et configurer les rôles DHCP et DNS sur un serveur Windows Server 2025 cloné depuis une template Sysprep, puis valider depuis un poste client."
-debut:
+debut: 2026-02-01
 fin:
+periode: février 2026
 cadre: formation
 annee: 1
 modalite: individuel
@@ -24,7 +25,7 @@ ordre: 2
 
 ## Contexte et besoin
 
-Travaux pratiques de 1re année à l'AFTEC. Dans un réseau local, deux services sont indispensables aux postes de travail : le DHCP, qui attribue automatiquement les adresses IP, et le DNS, qui traduit les noms en adresses. [À COMPLÉTER : dates exactes JJ/MM/AA – JJ/MM/AA ; le document est daté d'avril 2026]
+Travaux pratiques de 1re année à l'AFTEC. Dans un réseau local, deux services sont indispensables aux postes de travail : le DHCP, qui attribue automatiquement les adresses IP, et le DNS, qui traduit les noms en adresses.
 
 ## Objectifs
 
@@ -41,10 +42,6 @@ Travaux pratiques de 1re année à l'AFTEC. Dans un réseau local, deux services
 5. Créer la zone de recherche directe et un enregistrement hôte (A) pour le serveur.
 6. Placer serveur et client sur un même segment réseau VMware isolé pour les tests.
 
-## Difficultés et solutions
-
-[À COMPLÉTER : difficulté rencontrée et solution]
-
 ## Résultats et validation
 
 - Le client reçoit une adresse dans la plage prévue, sans adresse automatique de secours (APIPA).
@@ -54,8 +51,6 @@ Travaux pratiques de 1re année à l'AFTEC. Dans un réseau local, deux services
 
 ### Ce que j'ai appris
 
-[À COMPLÉTER]
-
-### Ce que je ferais autrement
-
-[À COMPLÉTER : ma conclusion cite les pistes pour la production : réservations DHCP, zones inversées, basculement DHCP]
+- Le rôle de chacun des deux services : le DHCP donne au poste son adresse, sa passerelle et l'adresse du serveur DNS ; le DNS lui permet ensuite de joindre les machines par leur nom.
+- Un serveur qui porte ces services doit avoir une adresse IP fixe : c'est lui que les postes doivent toujours retrouver.
+- Une template généralisée par Sysprep permet de créer rapidement un nouveau serveur, à condition de le renommer ensuite.

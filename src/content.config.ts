@@ -15,6 +15,8 @@ const realisations = defineCollection({
         // Dates au format AAAA-MM-JJ ; laisser vide tant qu'elles ne sont pas connues.
         debut: z.date().nullish(),
         fin: z.date().nullish(),
+        // Période en clair quand les dates exactes ne sont pas connues (« janvier 2026 ») ; remplace l'affichage des dates.
+        periode: z.string().optional(),
         cadre: z.enum(['formation', 'stage', 'alternance']),
         annee: z.union([z.literal(1), z.literal(2)]),
         organisation: reference('contextes').optional(),

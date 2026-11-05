@@ -1,8 +1,9 @@
 ---
 titre: "Domaine Windows Server et poste client Windows 11"
 resume: "Monter un domaine Active Directory avec DNS, DHCP, partage de fichiers et GPO, puis y intégrer un poste Windows 11, en environnement virtualisé."
-debut:
+debut: 2026-01-01
 fin:
+periode: janvier 2026
 cadre: formation
 annee: 1
 modalite: individuel
@@ -30,7 +31,7 @@ ordre: 1
 
 ## Contexte et besoin
 
-Travaux pratiques de 1re année à l'AFTEC. Le besoin simulé : une petite structure veut centraliser l'authentification de ses utilisateurs, attribuer automatiquement les paramètres réseau à ses postes et appliquer les mêmes réglages à tout le monde. [À COMPLÉTER : dates du TP, JJ/MM/AA – JJ/MM/AA]
+Travaux pratiques de 1re année à l'AFTEC. Le besoin simulé : une petite structure veut centraliser l'authentification de ses utilisateurs, attribuer automatiquement les paramètres réseau à ses postes et appliquer les mêmes réglages à tout le monde.
 
 ## Objectifs
 
@@ -54,7 +55,6 @@ Travaux pratiques de 1re année à l'AFTEC. Le besoin simulé : une petite struc
 ## Difficultés et solutions
 
 - Windows 11 impose un compte Microsoft à l'installation. J'ai ouvert l'invite de commandes pendant l'installation pour contourner l'obligation de connexion réseau et créer un compte local.
-- [À COMPLÉTER : autre difficulté rencontrée et comment je l'ai résolue]
 
 ## Résultats et validation
 
@@ -65,10 +65,6 @@ Travaux pratiques de 1re année à l'AFTEC. Le besoin simulé : une petite struc
 
 ## Bilan
 
-### Ce que j'ai appris
-
-[À COMPLÉTER : ce que ce TP m'a appris, en une ou deux phrases]
-
 ### Ce que je ferais autrement
 
-[À COMPLÉTER : par exemple, pour ce lab, j'ai assoupli la stratégie de mots de passe ; dire ce que je ferais en production]
+Pour ce lab, j'ai assoupli la stratégie de mots de passe du domaine afin d'aller plus vite. En entreprise, je garderais une vraie politique de mots de passe.

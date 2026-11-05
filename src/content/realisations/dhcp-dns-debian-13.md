@@ -1,8 +1,9 @@
 ---
 titre: "Services DHCP et DNS sous Debian 13"
 resume: "Mettre en place isc-dhcp-server et BIND9 sur un serveur Debian 13 à deux cartes réseau, puis valider l'attribution d'adresses et la résolution de noms."
-debut:
+debut: 2026-02-02
 fin:
+periode: février 2026
 cadre: formation
 annee: 1
 modalite: individuel
@@ -24,7 +25,7 @@ ordre: 3
 
 ## Contexte et besoin
 
-Travaux pratiques de 1re année à l'AFTEC, menés après la même installation sous Windows Server. Sous Linux, ces services se configurent uniquement par fichiers texte et en ligne de commande. [À COMPLÉTER : dates exactes JJ/MM/AA – JJ/MM/AA ; le document est daté d'avril 2026]
+Travaux pratiques de 1re année à l'AFTEC, menés après la même installation sous Windows Server. Sous Linux, ces services se configurent uniquement par fichiers texte et en ligne de commande.
 
 ## Objectifs
 
@@ -60,8 +61,4 @@ Travaux pratiques de 1re année à l'AFTEC, menés après la même installation 
 
 ### Ce que j'ai appris
 
-[À COMPLÉTER : par exemple ce que change le fait de tout configurer en fichiers texte par rapport à Windows Server]
-
-### Ce que je ferais autrement
-
-[À COMPLÉTER : ma conclusion cite les zones inversées, la mise à jour dynamique DNS-DHCP, un DNS secondaire et DNSSEC]
+Les mêmes services que sous Windows Server, mais sans interface graphique : toute la configuration tient dans quelques fichiers texte. C'est plus exigeant, car une faute de syntaxe empêche le service de démarrer ; d'où l'intérêt des commandes de contrôle comme `named-checkconf` et `named-checkzone` avant chaque redémarrage. En contrepartie, la configuration se relit, se copie et se sauvegarde facilement.

@@ -26,7 +26,7 @@ npm run todo       # met à jour TODO-CONTENU.md (informations manquantes)
    Générer ensuite la miniature de première page : `python scripts/miniatures.py` (prérequis, une fois : `python -m pip install pymupdf`). Sans miniature, le document s'affiche avec une vignette « PDF ».
 5. `npm run dev` pour vérifier, puis commit et push : le site se met à jour tout seul en 1 à 2 minutes.
 
-Le tableau de synthèse, la matrice de l'accueil, la page Compétences et le plan du site se mettent à jour automatiquement : il n'y a rien d'autre à modifier.
+Pour le fichier .xlsx officiel, relancer `python scripts/tableau-synthese.py` (voir plus bas). Le tableau de synthèse du site, la matrice de l'accueil, la page Compétences et le plan du site se mettent à jour automatiquement : il n'y a rien d'autre à modifier.
 
 Une information pas encore connue s'écrit `[À COMPLÉTER : ce qui manque]`. Elle apparaît surlignée sur le site et dans `TODO-CONTENU.md` après `npm run todo`. Objectif avant l'oral : zéro.
 
@@ -42,7 +42,7 @@ Copier `src/content/veille/_modele.md`, le renommer (par exemple `2026-12-nis2-c
 | Certifications | `src/data/certifications.yaml` |
 | Identité, e-mail, LinkedIn | `src/data/profil.ts` |
 | Intitulés des 6 compétences | `src/data/competences.ts` |
-| Tableau officiel (.xlsx) | `public/documents/tableau-de-synthese-e5.xlsx` |
+| Tableau officiel (.xlsx) | généré par `python scripts/tableau-synthese.py <modèle.xlsx>` (prérequis : `pip install openpyxl pyyaml`) à partir des fiches ; le relancer après chaque nouvelle réalisation |
 | CV en PDF | `public/documents/cv-nino-lariviere-gillet.pdf` |
 | Couleurs et typographie | `src/styles/global.css` (variables en haut du fichier) |
 

@@ -1,8 +1,9 @@
 ---
 titre: "Mini-SI d'une PME : annuaire, helpdesk, supervision et sauvegarde"
 resume: "Déployer le SI d'une PME fictive de 50 postes (AD, GLPI, Zabbix, journaux, sauvegarde), traiter trois incidents et démontrer la reprise de GLPI."
-debut:
+debut: 2026-10-01
 fin:
+periode: octobre 2026
 cadre: formation
 annee: 2
 modalite: individuel
@@ -31,7 +32,7 @@ ordre: 3
 
 ## Contexte et besoin
 
-TD transversal de 2e année à l'AFTEC, sur le bloc 1. Le service informatique interne d'ALBATROS, une PME fictive de 50 postes, doit livrer à sa direction un système d'information centralisé, supervisé, sauvegardé et reproductible par scripts, avec une faible consommation de ressources. J'ai mené ce travail seul ; mon dossier projet est daté du 08/10/2026. [À COMPLÉTER : dates de début et de fin du TD]
+TD transversal de 2e année à l'AFTEC, sur le bloc 1. Le service informatique interne d'ALBATROS, une PME fictive de 50 postes, doit livrer à sa direction un système d'information centralisé, supervisé, sauvegardé et reproductible par scripts, avec une faible consommation de ressources. J'ai mené ce travail seul ; mon dossier projet est daté du 08/10/2026.
 
 ## Objectifs
 
@@ -73,7 +74,7 @@ J'ai aussi choisi d'exporter les bases en SQL avant chaque sauvegarde, au lieu d
 ## Résultats et validation
 
 - **Services** : proxy, GLPI, Zabbix, Loki et Grafana, MinIO en service ; connexion à GLPI avec un compte de l'annuaire ; deux hôtes supervisés au vert.
-- **Sauvegarde** : premier jeu validé le 06/10/2026 ; restauration de GLPI réussie après suppression volontaire de tables (incident 2, plan de reprise). [À COMPLÉTER : durée de reprise mesurée]
+- **Sauvegarde** : premier jeu validé le 06/10/2026 ; restauration de GLPI réussie après suppression volontaire de tables (incident 2, plan de reprise).
 - **Incident 1, GLPI injoignable** : diagnostic couche par couche, réseau et DNS, alerte Zabbix, test à travers le proxy, journaux, puis conteneur. La cause était un service arrêté. Ticket et article de base de connaissances rédigés.
 - **Incident 3, GPO proxy désactivée** : à rejouer, car l'application nominale de la GPO doit d'abord être validée.
 
@@ -81,7 +82,7 @@ J'ai aussi choisi d'exporter les bases en SQL avant chaque sauvegarde, au lieu d
 
 ### Ce que j'ai appris
 
-[À COMPLÉTER : ce que je retiens, par exemple le diagnostic couche par couche ou le croisement des alertes et des journaux]
+Ce TD a servi de bilan de tout ce que j'ai appris depuis le début de la formation : il m'a fallu faire fonctionner ensemble, sur un même SI, des briques vues jusque-là séparément, de l'annuaire à la sauvegarde en passant par le helpdesk et la supervision.
 
 ### Ce que je ferais autrement
 

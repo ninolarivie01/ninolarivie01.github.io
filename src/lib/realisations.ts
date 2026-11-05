@@ -36,8 +36,9 @@ export async function realisationsParGroupe() {
 
 const jjmmaa = new Intl.DateTimeFormat('fr-FR', { day: '2-digit', month: '2-digit', year: '2-digit', timeZone: 'UTC' });
 
-/** Période au format JJ/MM/AA – JJ/MM/AA, ou null si les dates ne sont pas encore renseignées. */
-export function periode(debut?: Date | null, fin?: Date | null) {
+/** Période en clair si elle est donnée, sinon au format JJ/MM/AA – JJ/MM/AA, ou null si rien n'est renseigné. */
+export function periode({ debut, fin, periode: texte }: Realisation['data']) {
+  if (texte) return texte;
   if (!debut) return null;
   if (!fin) return `depuis le ${jjmmaa.format(debut)}`;
   return `${jjmmaa.format(debut)} – ${jjmmaa.format(fin)}`;

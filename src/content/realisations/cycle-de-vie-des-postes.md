@@ -1,8 +1,9 @@
 ---
 titre: "Cycle de vie des postes de travail"
-resume: "Masteriser des postes d'occasion sous Windows 11 par PXE, puis suivre postes, stations d'accueil et écrans dans Active Directory, MECM et EasyVista."
-debut:
+resume: "Remasteriser des postes d'occasion sous Windows 11 par PXE, les chiffrer avec BitLocker, puis tenir leur suivi à jour dans Active Directory, MECM et EasyVista."
+debut: 2026-09-01
 fin:
+periode: depuis septembre 2026
 cadre: alternance
 annee: 2
 organisation: dsn-ille-et-vilaine
@@ -13,6 +14,7 @@ competences:
 technologies:
   - Windows 11
   - PXE
+  - BitLocker
   - MECM
   - Active Directory
   - EasyVista
@@ -22,34 +24,26 @@ ordre: 1
 
 ## Contexte et besoin
 
-Au centre de service de la DSN, je prépare des postes d'occasion avant leur remise en service, et je tiens à jour leur suivi dans les outils du service. [À COMPLÉTER : pourquoi le Département réemploie des postes d'occasion, volume traité si c'est une information publique ; confirmer la date de début]
+Au centre de service de la DSN, je remasterise des postes d'occasion avant leur remise en service, depuis le début de mon alternance en septembre 2026. Le Département réemploie ses postes d'abord par économie, et aussi parce que les agents changent de poste en interne, avec d'autres besoins.
 
 ## Objectifs
 
-[À COMPLÉTER : par exemple livrer des postes conformes au standard du Département et garder un inventaire exact]
+Remettre en service un poste propre, au standard du Département, et garder des outils de suivi exacts.
 
 ## Démarche
 
-1. [À COMPLÉTER : démarrage du poste en PXE et application du master Windows 11]
-2. [À COMPLÉTER : vérifications après masterisation]
-3. [À COMPLÉTER : intégration ou mise à jour de l'objet ordinateur dans Active Directory et MECM]
-4. [À COMPLÉTER : enregistrement du poste, de la station d'accueil et des écrans dans EasyVista]
-5. [À COMPLÉTER : remise à l'utilisateur, le cas échéant]
-
-## Difficultés et solutions
-
-[À COMPLÉTER]
+1. **Retrait des anciennes traces** : je supprime à la main l'objet ordinateur dans Active Directory et dans MECM.
+2. **Masterisation** : démarrage du poste en PXE et application du master Windows 11. À cette étape, le poste se réinscrit automatiquement dans Active Directory et dans MECM.
+3. **Chiffrement** : activation de BitLocker.
+4. **Suivi** : dans EasyVista, je mets à jour l'état du poste et son attribution.
+5. **Remise** : le poste est remis à son utilisateur, soit par l'équipe, soit par un prestataire qui travaille avec nous.
 
 ## Résultats et validation
 
-[À COMPLÉTER : contrôles réalisés avant remise du poste]
+Chaque poste remis est chiffré, et son attribution est à jour dans EasyVista.
 
 ## Bilan
 
 ### Ce que j'ai appris
 
-[À COMPLÉTER]
-
-### Ce que je ferais autrement
-
-[À COMPLÉTER]
+Suivre une procédure à la lettre : c'est ce qui garantit que tous les postes sortent identiques, quel que soit le technicien qui les prépare.

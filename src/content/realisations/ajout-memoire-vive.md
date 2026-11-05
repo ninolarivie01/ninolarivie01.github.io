@@ -1,8 +1,9 @@
 ---
 titre: "Évolution matérielle d'un poste, ajout de mémoire vive"
-resume: "Traiter une demande d'évolution matérielle de bout en bout, de la demande de l'utilisateur à la mise à jour de l'inventaire après ajout de mémoire vive."
-debut:
+resume: "Traiter les lenteurs d'un poste pas assez puissant : diagnostic avec Nexthink, ajout de mémoire vive, puis vérification."
+debut: 2026-09-02
 fin:
+periode: intervention régulière depuis septembre 2026
 cadre: alternance
 annee: 2
 organisation: dsn-ille-et-vilaine
@@ -12,40 +13,22 @@ competences:
   - incidents
 technologies:
   - EasyVista
+  - Nexthink
 productions: []
 ordre: 2
 ---
 
 ## Contexte et besoin
 
-[À COMPLÉTER : la demande d'origine (anonymisée), le problème rencontré par l'utilisateur, dates JJ/MM/AA – JJ/MM/AA]
-
-## Objectifs
-
-[À COMPLÉTER]
+Des utilisateurs signalent des lenteurs, dues à des postes qui ne sont plus assez puissants pour leur usage. C'est une intervention que je fais régulièrement.
 
 ## Démarche
 
-1. [À COMPLÉTER : réception et qualification de la demande dans EasyVista]
-2. [À COMPLÉTER : vérification de la compatibilité et de la disponibilité de la mémoire]
-3. [À COMPLÉTER : intervention sur le poste]
-4. [À COMPLÉTER : tests après intervention]
-5. Mettre à jour l'inventaire, puis clore la demande.
-
-## Difficultés et solutions
-
-[À COMPLÉTER]
+1. **Réception** : la demande arrive sous forme de ticket dans EasyVista.
+2. **Diagnostic** : je regarde dans Nexthink, l'outil de mesure de l'expérience des postes, d'où viennent les lenteurs.
+3. **Information** : je préviens l'utilisateur de la cause trouvée et de l'intervention.
+4. **Intervention** : je démonte le poste et j'ajoute de la mémoire vive.
 
 ## Résultats et validation
 
-[À COMPLÉTER]
-
-## Bilan
-
-### Ce que j'ai appris
-
-[À COMPLÉTER]
-
-### Ce que je ferais autrement
-
-[À COMPLÉTER]
+Après l'intervention, je vérifie que la barrette est bien en place. L'utilisateur nous prévient ensuite s'il constate encore un problème.

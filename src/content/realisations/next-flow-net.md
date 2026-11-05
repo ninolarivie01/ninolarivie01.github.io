@@ -1,8 +1,9 @@
 ---
 titre: "Next Flow-NET, infrastructure réseau d'une entreprise fictive"
 resume: "Projet de groupe : l'infrastructure d'une entreprise fictive, dont le pare-feu FortiGate qui sépare les services et filtre les flux : je l'ai configuré et documenté."
-debut:
+debut: 2026-10-01
 fin:
+periode: octobre 2026 – mars 2027 (fin prévue)
 cadre: formation
 annee: 2
 modalite: equipe
@@ -16,9 +17,6 @@ technologies:
   - VLAN et trunk 802.1Q
   - Politiques de filtrage, NAT, IP virtuelle
   - DHCP
-  - Proxmox VE
-  - pfSense
-  - Suricata
   - Active Directory
 productions:
   - titre: Documentation technique, pare-feu FW-NEXTFLOW
@@ -29,7 +27,7 @@ ordre: 1
 
 ## Contexte et besoin
 
-Projet de groupe de 2e année à l'AFTEC, à trois. Next Flow-NET est une entreprise fictive dont il faut concevoir et déployer l'infrastructure : réseau segmenté par service, serveurs, DMZ, Wi-Fi invités, sauvegarde et accès distant. Le pare-feu en est la pièce centrale : il sépare les réseaux et décide quels flux sont autorisés. [À COMPLÉTER : dates du projet JJ/MM/AA – JJ/MM/AA]
+Projet de groupe de 2e année à l'AFTEC, à trois. Next Flow-NET est une entreprise fictive dont il faut concevoir et déployer l'infrastructure : réseau segmenté par service, serveurs, DMZ, Wi-Fi invités, sauvegarde et accès distant. Le pare-feu en est la pièce centrale : il sépare les réseaux et décide quels flux sont autorisés. Le projet a commencé début octobre 2026 et doit se terminer en mars 2027. Il en est aujourd'hui à l'étape du matériel physique (pare-feu, switch, borne Wi-Fi) ; les serveurs et la virtualisation viendront ensuite.
 
 ## Objectifs
 
@@ -69,19 +67,17 @@ L'analyse d'écarts, réalisée le 16/10/2026 :
 - deux écarts temporaires : le DNS et le DHCP des postes, en attente du serveur Windows ;
 - plusieurs flux à créer à l'arrivée des autres équipements : VPN nomade, supervision, sauvegarde.
 
-Le plan de validation compte 18 tests, chacun prouvé par le résultat côté client et par la ligne de journal du FortiGate : isolement entre services, refus vers la sauvegarde, administration impossible depuis un poste ou depuis le WAN, blocage après trois échecs de connexion, etc. [À COMPLÉTER : tests déjà passés et leur résultat]
+Le plan de validation compte 18 tests, chacun prouvé par le résultat côté client et par la ligne de journal du FortiGate : isolement entre services, refus vers la sauvegarde, administration impossible depuis un poste ou depuis le WAN, blocage après trois échecs de connexion, etc. Ces tests n'ont pas encore été passés : ils le seront une fois les autres équipements en place.
 
-[À COMPLÉTER : planning du projet, indicateurs de suivi et écarts constatés]
+Le planning et le suivi des tâches sont tenus dans un tableau partagé par l'équipe, publié sous forme d'artefact Claude. À ce jour, aucun retard sur le planning.
 
 ## Mon rôle
 
-J'ai pris en charge le pare-feu FortiGate : je l'ai configuré moi-même, de la remise en configuration d'usine à la sécurisation de l'administration, puis j'ai rédigé sa documentation technique, l'analyse d'écarts et le plan de tests. [À COMPLÉTER : ce qu'ont fait les deux autres membres (switch, serveurs, Proxmox…) sans les nommer, et comment nous nous sommes coordonnés]
+J'ai pris en charge le pare-feu FortiGate : je l'ai configuré moi-même, de la remise en configuration d'usine à la sécurisation de l'administration, puis j'ai rédigé sa documentation technique, l'analyse d'écarts et le plan de tests.
+
+Les deux autres membres se sont occupés du switch, de la borne Wi-Fi, de l'organisation et de la documentation générale du projet ; j'ai aussi participé à ces tâches. Nous nous coordonnons avec le tableau de suivi partagé.
 
 ## Bilan
-
-### Ce que j'ai appris
-
-[À COMPLÉTER]
 
 ### Ce que je ferais autrement
 

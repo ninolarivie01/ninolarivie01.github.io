@@ -1,8 +1,9 @@
 ---
-titre: "Présence en ligne du Département"
-resume: "Relayer les publications du Département sur LinkedIn et analyser sa présence en ligne au regard des mentions légales, du RGPD, de l'accessibilité et du référencement."
-debut:
+titre: "Relais d'une publication du Département sur LinkedIn"
+resume: "De ma propre initiative, repartager sur LinkedIn une publication du Département, mon employeur d'alternance."
+debut: 2026-09-05
 fin:
+periode: "2026"
 cadre: alternance
 annee: 2
 organisation: dsn-ille-et-vilaine
@@ -18,35 +19,8 @@ ordre: 5
 
 ## Contexte et besoin
 
-[À COMPLÉTER : dates JJ/MM/AA – JJ/MM/AA, et dans quel cadre j'ai relayé les publications du Département]
+Le Département publie sur LinkedIn. De ma propre initiative, j'ai repartagé l'une de ses publications depuis mon profil.
 
 ## Objectifs
 
-- Contribuer à la visibilité du Département sur LinkedIn.
-- Analyser sa présence en ligne sous quatre angles : mentions légales, RGPD, accessibilité (RGAA) et référencement.
-
-## Démarche
-
-1. Repartager des publications du Département sur LinkedIn. [À COMPLÉTER : lesquelles et pourquoi]
-2. [À COMPLÉTER : analyse des mentions légales]
-3. [À COMPLÉTER : analyse RGPD]
-4. [À COMPLÉTER : analyse de l'accessibilité au regard du RGAA]
-5. [À COMPLÉTER : analyse du référencement]
-
-## Difficultés et solutions
-
-[À COMPLÉTER]
-
-## Résultats et validation
-
-[À COMPLÉTER : constats de l'analyse]
-
-## Bilan
-
-### Ce que j'ai appris
-
-[À COMPLÉTER]
-
-### Ce que je ferais autrement
-
-[À COMPLÉTER]
+Contribuer, à mon échelle, à la visibilité de mon employeur, et alimenter mon propre profil professionnel.

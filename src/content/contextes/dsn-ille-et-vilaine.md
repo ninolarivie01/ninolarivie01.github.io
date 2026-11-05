@@ -12,6 +12,8 @@ environnement:
   - MECM (Microsoft Endpoint Configuration Manager), dont la prise en main à distance
   - Déploiement par PXE
   - EasyVista (gestion des demandes et du parc)
+  - BitLocker
+  - Nexthink (mesure de l'expérience des postes)
 ordre: 1
 ---
 
@@ -25,12 +27,11 @@ La Direction des services numériques (DSN) gère le système d'information du D
 
 ## Mes missions
 
-- Préparer les postes de travail : masterisation des postes d'occasion sous Windows 11 par PXE.
-- Gérer le cycle de vie des matériels dans Active Directory, MECM et EasyVista : postes, stations d'accueil, écrans.
-- Faire évoluer les postes, par exemple par l'ajout de mémoire vive, et tenir l'inventaire à jour.
-- Suivre les demandes d'intervention confiées au prestataire.
+- Préparer les postes de travail : masterisation des postes d'occasion sous Windows 11 par PXE, chiffrement BitLocker.
+- Tenir à jour le suivi des postes dans Active Directory, MECM et EasyVista.
+- Faire évoluer les postes, par exemple par l'ajout de mémoire vive.
+- Transmettre au prestataire les demandes de réparation et de changement de poste.
 - Traiter les demandes et incidents des utilisateurs sous EasyVista, y compris les échanges de ports au brassage.
-- Participer à la valorisation de l'image du Département sur LinkedIn.
 
 ## Mon rythme d'alternance
 

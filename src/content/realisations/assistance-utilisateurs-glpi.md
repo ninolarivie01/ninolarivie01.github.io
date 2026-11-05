@@ -17,32 +17,36 @@ ordre: 1
 
 ## Contexte et besoin
 
-Pendant mon stage de 1re année au Pôle Saint-Hélier, j'ai traité des demandes d'assistance des utilisateurs dans GLPI. [À COMPLÉTER : types d'utilisateurs, organisation du support]
+Pendant mon stage de 1re année au Pôle Saint-Hélier, j'ai traité des demandes d'assistance dans GLPI. Les utilisateurs étaient l'ensemble du personnel de l'établissement. Les demandes arrivaient par téléphone ou par courriel ; les courriels étaient transformés automatiquement en tickets.
 
 ## Objectifs
 
-[À COMPLÉTER : par exemple prendre en charge les tickets de niveau 1 dans les délais du service]
+Apprendre le métier du support informatique en prenant en charge des tickets de niveau 1 et de niveau 2.
 
 ## Démarche
 
-1. [À COMPLÉTER : réception et qualification du ticket]
-2. [À COMPLÉTER : diagnostic et traitement, ou escalade]
-3. [À COMPLÉTER : suivi, information de l'utilisateur et clôture]
+1. **Prise en charge** : je lisais le ticket et j'évaluais si je pouvais le résoudre avec mes connaissances.
+2. **Traitement** : quand je savais faire, je le résolvais, en appelant l'utilisateur si besoin. Sinon, je me documentais d'abord seul, puis je demandais à un collègue ; si je ne trouvais vraiment pas, je transmettais le ticket.
+3. **Clôture** : je prévenais l'utilisateur, je commentais le ticket dans GLPI, puis je le clôturais.
 
 ## Difficultés et solutions
 
-[À COMPLÉTER]
+Pas de difficulté marquante. Face à une demande que je ne savais pas traiter, j'appliquais toujours le même ordre : chercher seul, demander à un collègue, et transmettre en dernier recours.
 
 ## Résultats et validation
 
-[À COMPLÉTER : nombre de tickets traités, si je peux le justifier, et exemples types anonymisés]
+Environ une centaine de tickets traités pendant le stage. Exemples types :
+
+- changement de mot de passe ou déblocage de compte ;
+- problèmes d'Outlook ou de Teams ;
+- remplacement des postes d'une salle : préparation des nouveaux postes selon la procédure, installation, puis reprise des anciens après avoir vérifié que les utilisateurs n'avaient plus de données à garder. Sinon, le disque dur était conservé 15 jours.
 
 ## Bilan
 
 ### Ce que j'ai appris
 
-[À COMPLÉTER]
+Le fonctionnement concret d'un support informatique : d'où viennent les demandes, comment elles deviennent des tickets, et à quel moment passer la main.
 
 ### Ce que je ferais autrement
 
-[À COMPLÉTER]
+Être plus à l'aise dans les échanges avec les utilisateurs, et faire preuve de plus de patience avec eux.

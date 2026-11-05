@@ -37,13 +37,9 @@ Le portfolio est le support officiel de l'épreuve E5. Mon premier portfolio, pu
 1. Rédiger un cahier des charges : public, contenus, contraintes légales et techniques, critères de qualité.
 2. Auditer l'ancien portfolio : contenus à reprendre, contenus obsolètes, risques.
 3. Choisir une direction visuelle parmi trois maquettes.
-4. Développer le site avec Astro, un générateur de site statique, en développement assisté par une IA (Claude). [À COMPLÉTER : préciser ma part exacte : rédaction des contenus, choix, relecture du code, tests]
+4. Développer le site avec Astro, un générateur de site statique, en développement assisté par une IA (Claude). J'ai rédigé le cahier des charges et tous les contenus, fait les choix de conception, relu et validé chaque étape, et préparé les documents ; le code a été écrit avec l'assistance de l'IA, et je sais l'expliquer.
 5. Tester l'accessibilité, les performances et les liens.
 6. Déployer sur GitHub Pages par GitHub Actions.
-
-## Difficultés et solutions
-
-[À COMPLÉTER]
 
 ## Résultats et validation
 
@@ -53,16 +49,6 @@ Mesures du 5 novembre 2026, avant la mise en ligne :
 |---|---|---|
 | Performance, accessibilité, bonnes pratiques, référencement | Lighthouse, mobile et desktop, 6 pages types | 100 dans les 4 catégories |
 | Accessibilité WCAG 2.2 AA | axe-core, 30 pages, à 1440 et 360 pixels | aucune erreur |
-| Liens internes | script de vérification | 37 liens, aucun cassé |
+| Liens internes | script de vérification | 47 liens, aucun cassé |
 | Vie privée | analyse des requêtes du navigateur | aucune ressource tierce, aucun cookie |
 | Fonctionnement | 15 tests automatisés : clavier, filtre, sans JavaScript, impression | tous réussis |
-
-## Bilan
-
-### Ce que j'ai appris
-
-[À COMPLÉTER]
-
-### Ce que je ferais autrement
-
-[À COMPLÉTER]

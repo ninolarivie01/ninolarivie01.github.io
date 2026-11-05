@@ -54,7 +54,7 @@ const realisations = (await realisationsPubliees()).reverse();
           <p class="meta">
             {CADRES[r.data.cadre]}, {r.data.annee === 1 ? '1re' : '2e'} année
             {r.data.modalite === 'equipe' && ', en équipe'}
-            {periode(r.data.debut, r.data.fin) && <>, {periode(r.data.debut, r.data.fin)}</>}
+            {periode(r.data) && <>, {periode(r.data)}</>}
           </p>
           <h2>
             <a href={`/realisations/${r.id}/`}>{r.data.titre}</a>
