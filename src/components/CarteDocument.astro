@@ -6,11 +6,13 @@ import type { Production } from '../lib/productions';
 
 interface Props {
   production: Production;
+  /** Version réduite, pour la liste des réalisations */
+  compact?: boolean;
 }
-const { production: p } = Astro.props;
+const { production: p, compact = false } = Astro.props;
 ---
 
-<a href={p.fichier} target="_blank" rel="noopener" class="carte">
+<a href={p.fichier} target="_blank" rel="noopener" class:list={['carte', { compact }]}>
   {
     p.miniature ? (
       <Image src={p.miniature} alt="" width={120} densities={[1, 2, 3]} class="miniature" />
@@ -65,6 +67,23 @@ const { production: p } = Astro.props;
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.2em;
+  }
+  .compact {
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    gap: 0.65rem;
+  }
+  .compact :global(.miniature) {
+    width: 2.75rem;
+    box-shadow: 2px 2px 0 var(--fond-2);
+  }
+  .compact .titre {
+    font-size: 0.875rem;
+  }
+  .compact .type {
+    display: none;
+  }
+  .compact .detail {
+    font-size: 0.75rem;
   }
   .carte:hover .titre {
     color: var(--brique);

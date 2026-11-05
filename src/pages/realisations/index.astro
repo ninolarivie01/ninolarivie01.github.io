@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Etiquettes from '../../components/Etiquettes.astro';
-import LienDocument from '../../components/LienDocument.astro';
+import CarteDocument from '../../components/CarteDocument.astro';
 import { productionsDe } from '../../lib/productions';
 import { COMPETENCES } from '../../data/competences';
 import { realisationsPubliees, GROUPES, CADRES, periode } from '../../lib/realisations';
@@ -62,17 +62,15 @@ const realisations = (await realisationsPubliees()).reverse();
           <p class="resume">{r.data.resume}</p>
           <Etiquettes ids={r.data.competences} liens={false} />
           {productionsDe(r).some((p) => p.present) && (
-            <p class="docs">
-              Documents :{' '}
+            <ul class="docs" aria-label={`Documents de la réalisation « ${r.data.titre} »`}>
               {productionsDe(r)
                 .filter((p) => p.present)
-                .map((p, i) => (
-                  <>
-                    {i > 0 && ', '}
-                    <LienDocument production={p}>{p.libelleType} ({p.format})</LienDocument>
-                  </>
+                .map((p) => (
+                  <li>
+                    <CarteDocument production={p} compact />
+                  </li>
                 ))}
-            </p>
+            </ul>
           )}
         </li>
       ))
@@ -182,7 +180,7 @@ const realisations = (await realisationsPubliees()).reverse();
     padding: 0;
     border-top: 1px solid var(--noir);
   }
-  .liste li {
+  .liste > li {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     grid-template-areas:
@@ -194,7 +192,7 @@ const realisations = (await realisationsPubliees()).reverse();
     padding: 1.5rem 0;
     border-bottom: 1px solid var(--filet);
   }
-  .liste li[hidden] {
+  .liste > li[hidden] {
     display: none;
   }
   .meta {
@@ -225,11 +223,18 @@ const realisations = (await realisationsPubliees()).reverse();
   }
   .docs {
     grid-area: docs;
-    margin: 0.2rem 0 0;
-    font: 400 0.875rem/1.5 var(--titre);
+    list-style: none;
+    margin: 0.6rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+  }
+  .docs li {
+    max-width: 19rem;
   }
   @media (max-width: 48rem) {
-    .liste li {
+    .liste > li {
       grid-template-columns: 1fr;
       grid-template-areas: 'meta' 'titre' 'resume' 'etiquettes' 'docs';
     }
