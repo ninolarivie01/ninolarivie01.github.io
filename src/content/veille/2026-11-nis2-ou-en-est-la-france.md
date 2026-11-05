@@ -1,5 +1,4 @@
 ---
-# BROUILLON préparé pour Nino : relire chaque phrase, vérifier les sources, écrire « Mon avis », puis passer brouillon à false.
 titre: "NIS 2 : la France toujours sans loi, la Commission saisit la Cour de justice"
 date: 2026-11-05
 resume: "Deux ans après l'échéance, NIS 2 n'est pas transposée en France. Les départements seront des entités essentielles ; l'ANSSI publie déjà son référentiel."
@@ -21,7 +20,7 @@ motsCles:
   - NIS 2
   - loi Résilience
   - collectivités
-brouillon: true
+brouillon: false
 ---
 
 ## Ce qui s'est passé
@@ -38,4 +37,4 @@ Sans attendre la loi, l'ANSSI a publié en mars 2026 son Référentiel Cyber Fra
 
 ## Mon avis
 
-[À COMPLÉTER : ce que j'en retiens, en une ou deux phrases, par exemple ce que je vois de cette préparation depuis le centre de service]
+Le retard de la loi ne dispense pas de se préparer : le ReCyF donne déjà la liste des mesures attendues, et une collectivité qui s'en sert dès maintenant aura moins à rattraper le jour où la loi s'appliquera. Prochaine étape de ma veille : l'examen du texte en séance publique à l'Assemblée nationale.
