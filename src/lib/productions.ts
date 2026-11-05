@@ -1,6 +1,14 @@
 import { existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import type { ImageMetadata } from 'astro';
 import type { Realisation } from './realisations';
+
+// Miniatures de première page, générées par scripts/miniatures.py
+const MINIATURES = import.meta.glob<{ default: ImageMetadata }>('../assets/miniatures/*.png', { eager: true });
+const miniature = (fichier: string) => {
+  const nom = fichier.split('/').pop()!.replace(/\.pdf$/i, '');
+  return MINIATURES[`../assets/miniatures/${nom}.png`]?.default;
+};
 
 export const TYPES_PRODUCTION = {
   procedure: 'Procédure',
@@ -23,6 +31,7 @@ export function productionsDe(r: Realisation) {
       taille,
       libelleType: TYPES_PRODUCTION[p.type],
       format: p.fichier.split('.').pop()?.toUpperCase() ?? '',
+      miniature: present ? miniature(p.fichier) : undefined,
     };
   });
 }

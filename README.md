@@ -22,7 +22,8 @@ npm run todo       # met à jour TODO-CONTENU.md (informations manquantes)
    - `competences` : la liste des compétences du bloc 1 mobilisées (`patrimoine`, `incidents`, `presence-en-ligne`, `projet`, `mise-a-disposition`, `developpement-pro`) ;
    - `organisation` : obligatoire pour un stage ou une alternance (`pole-saint-helier` ou `dsn-ille-et-vilaine`).
 3. Rédiger le corps en gardant les titres du modèle. Pour un travail d'équipe (`modalite: equipe`), la section `## Mon rôle` est obligatoire : le build échoue sans elle.
-4. Déposer les PDF dans `public/documents/` et les déclarer dans `productions`. Un fichier déclaré mais absent s'affiche comme « à compléter ».
+4. Déposer les PDF dans `public/documents/` et les déclarer dans `productions`. Un fichier déclaré mais absent s'affiche comme « à compléter ». Vérifier avant qu'aucun mot de passe, nom de personne ou mention « confidentiel » n'y figure.
+   Générer ensuite la miniature de première page : `python scripts/miniatures.py` (prérequis, une fois : `python -m pip install pymupdf`). Sans miniature, le document s'affiche avec une vignette « PDF ».
 5. `npm run dev` pour vérifier, puis commit et push : le site se met à jour tout seul en 1 à 2 minutes.
 
 Le tableau de synthèse, la matrice de l'accueil, la page Compétences et le plan du site se mettent à jour automatiquement : il n'y a rien d'autre à modifier.
