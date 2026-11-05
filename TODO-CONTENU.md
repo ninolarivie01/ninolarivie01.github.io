@@ -92,7 +92,7 @@ Fichier généré par `npm run todo` le 5 novembre 2026 : ne pas modifier à la 
 - [ ] ligne 32 : dates du projet JJ/MM/AA – JJ/MM/AA
 - [ ] ligne 72 : tests déjà passés et leur résultat
 - [ ] ligne 74 : planning du projet, indicateurs de suivi et écarts constatés
-- [ ] ligne 78 : confirmer si j'ai aussi réalisé sa configuration, préciser ce qu'ont fait les deux autres membres (switch, serveurs, Proxmox…) sans les nommer, et comment nous nous sommes coordonnés
+- [ ] ligne 78 : ce qu'ont fait les deux autres membres (switch, serveurs, Proxmox…) sans les nommer, et comment nous nous sommes coordonnés
 - [ ] ligne 84 : rédiger la section « Ce que j'ai appris »
 
 ## src/content/realisations/portfolio-professionnel.md
@@ -117,7 +117,7 @@ Fichier généré par `npm run todo` le 5 novembre 2026 : ne pas modifier à la 
 
 ## src/content/realisations/si-albatros.md
 
-- [ ] ligne 34 : dates de début et de fin du TD, et préciser si le travail était individuel ou en équipe
+- [ ] ligne 34 : dates de début et de fin du TD
 - [ ] ligne 76 : durée de reprise mesurée
 - [ ] ligne 84 : ce que je retiens, par exemple le diagnostic couche par couche ou le croisement des alertes et des journaux
 

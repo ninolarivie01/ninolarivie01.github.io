@@ -1,6 +1,6 @@
 ---
 titre: "Next Flow-NET, infrastructure réseau d'une entreprise fictive"
-resume: "Projet de groupe : l'infrastructure d'une entreprise fictive, dont le pare-feu FortiGate qui sépare les services et filtre les flux. J'en ai rédigé la documentation."
+resume: "Projet de groupe : l'infrastructure d'une entreprise fictive, dont le pare-feu FortiGate qui sépare les services et filtre les flux : je l'ai configuré et documenté."
 debut:
 fin:
 cadre: formation
@@ -75,7 +75,7 @@ Le plan de validation compte 18 tests, chacun prouvé par le résultat côté cl
 
 ## Mon rôle
 
-J'ai rédigé la documentation technique du pare-feu. [À COMPLÉTER : confirmer si j'ai aussi réalisé sa configuration, préciser ce qu'ont fait les deux autres membres (switch, serveurs, Proxmox…) sans les nommer, et comment nous nous sommes coordonnés]
+J'ai pris en charge le pare-feu FortiGate : je l'ai configuré moi-même, de la remise en configuration d'usine à la sécurisation de l'administration, puis j'ai rédigé sa documentation technique, l'analyse d'écarts et le plan de tests. [À COMPLÉTER : ce qu'ont fait les deux autres membres (switch, serveurs, Proxmox…) sans les nommer, et comment nous nous sommes coordonnés]
 
 ## Bilan
 

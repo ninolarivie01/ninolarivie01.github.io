@@ -31,7 +31,7 @@ ordre: 3
 
 ## Contexte et besoin
 
-TD transversal de 2e année à l'AFTEC, sur le bloc 1. Le service informatique interne d'ALBATROS, une PME fictive de 50 postes, doit livrer à sa direction un système d'information centralisé, supervisé, sauvegardé et reproductible par scripts, avec une faible consommation de ressources. Mon dossier projet est daté du 08/10/2026. [À COMPLÉTER : dates de début et de fin du TD, et préciser si le travail était individuel ou en équipe]
+TD transversal de 2e année à l'AFTEC, sur le bloc 1. Le service informatique interne d'ALBATROS, une PME fictive de 50 postes, doit livrer à sa direction un système d'information centralisé, supervisé, sauvegardé et reproductible par scripts, avec une faible consommation de ressources. J'ai mené ce travail seul ; mon dossier projet est daté du 08/10/2026. [À COMPLÉTER : dates de début et de fin du TD]
 
 ## Objectifs
 
